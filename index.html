@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The secret life of HTML5 Inputs - Lightning talk</title>
+
+		<meta name="description" content="A 15 minute presentation on understanding behaviour of native HTML5 input types.
+">
+		<meta name="author" content="Davide L Rizzo">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>The secret life of HTML5 Inputs</h1>
+				</section>
+
+				<!-- #################### ABOUT ME ########################## -->
+
+				<section>
+					<h2>Davide L Rizzo</h2>
+					<p>
+						<a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a>
+						<br/>
+						<a href="http://codepen.io/davidelrizzo" target="_blank">codepen.io/davidelrizzo</a>
+					</p>
+					<p><ul class="barList">
+						<li>Melbourne-based</li>
+						<li>UX &amp; Front-End</li>
+						<li>12+ years</li>
+					</ul></p>
+					<p>I live in the space between coding and design</p>
+				</section>
+
+				<!-- <section>
+					<h2>Suncorp Group</h2>
+					<ul class="barList">
+						<li>Suncorp Insurance</li>
+						<li>AAMI</li>
+						<li>GIO</li>
+						<li>Bingle</li>
+						<li>Just Car</li>
+						<li>Shannons</li>
+						<li>Insure My Ride</li>
+						<li>Apia &nbsp;&nbsp;<small>...and like 10 more</small></li>
+					</ul>
+					<p>
+						I work on Personal Insurance UX<br/>
+						I am the founder of the Suncorp front-end styleguide
+					</p>
+				</section> -->
+
+				<!-- #################### INTRO ########################## -->
+
+				<!-- <section>
+					<h2>HTML5 inputs have been available since 2012</h2>
+					<p class="fragment roll-in">Huge browser inconsistency<p>
+					<p class="fragment roll-in">Limitations on styling<p>
+					<p class="fragment roll-in">Confusion on which input is for which job<p>
+					<br>
+					<p class="fragment roll-in"><em>Why hasn't anyone solved this yet?</em></p>
+				</section> -->
+
+				<section>
+					<h2>The 4 pillars of Inputs</h2>
+					<p>Markup (Semantics and Accessibility)</p>
+					<p>Interaction (UI/UX, behaviour)</p>
+					<p>Styling</p>
+					<p>Validation</p>
+					<br/>
+					<p><em>Understanding all 4 is key to designing best practice forms</em></p>
+				</section>
+
+				<!-- ##################### BASICS ######################### -->
+
+				<section>
+					<h2>States</h2>
+					<div class="fragment roll-in">
+						<p>States for usability and accesibility</p>
+						<p>[:hover]  [:focus]</p>
+					</div>
+					<div class="fragment roll-in">
+						<p>States for validation</p>
+						<p>[:valid]  [:invalid]</p>
+					</div>
+					<p class="fragment roll-in">
+						You can't use HTML/CSS validation in the real world without a JavaScript support<br>
+						<small>Unless client side validation is a <em>'nice to have'</em>.</small>
+					</p>
+				</section>
+
+				<!-- <section>
+					<h2>The Buttons</h2>
+					<p class="fragment roll-in">
+						[submit] Use this to submit forms
+					</p>
+					<p class="fragment roll-in">
+						[button] Use this for functional things
+					</p>
+					<p class="fragment roll-in">
+						[image] Useless
+					</p>
+					<p class="fragment roll-in">
+						[reset] Bad usability
+					</p>
+				</section> -->
+
+				<section>
+					<h2>Basic inputs</h2>
+					<p class="fragment roll-in">
+						[text] Consider <em>autocomplete</em> and <em>spellcheck/autocorrect</em>
+					</p>
+					<p class="fragment roll-in">
+						[password] To show or not to show?
+					</p>
+					<p class="fragment roll-in">
+						[search] Browser styling &amp; Safari attributes 
+					</p>
+					<p class="fragment roll-in">
+						[tel] Telephone keypad<br>
+						[email] Email keypad<br>
+						[url] URL Keypad
+					</p>
+				</section>
+
+				<section>
+					<h2>We need to talk about <em>autocomplete</em></h2>
+					<p class="fragment roll-in">
+						<strong>autocomplete='off' is BAD UX!</strong><br>
+						Slows down form completion &amp; blocks password managers<br>
+						<small>Chrome 35+ ignores autocomplete="off"</small>
+					</p>
+					<br>
+					<p class="fragment roll-in">
+						Using autocomplete the <em>right</em> way:
+						<br>
+						[tokens]
+					</p>
+					<!--<br>
+					<p class="fragment roll-in">
+						<em>A brief history of autocomplete as 'browser autofill'</em>
+					</p>
+					<p class="fragment roll-in">
+						Heuristic
+					</p>
+					<p class="fragment roll-in">
+						x-autocompletetype (C15,FF4,Safari5)
+					</p>
+					<p class="fragment roll-in">
+						autocomplete tokens <small>(WHATWG: not just 'off' or 'on')</small>
+					</p>
+					<p class="fragment roll-in">
+						Ignore 'off' value (C35)
+					</p> -->
+				</section>
+
+				<!-- <section>
+					<h3>Just what are <em>autocomplete</em> tokens?</h3>
+					<img src="images/placeholder.jpg">
+				</section> -->
+
+				<section>
+					<h2>Select</h2>
+					<p class="fragment roll-in">
+						select ≠ menu dropdown<br>
+						<img src="images/placeholder.jpg" height="300px">
+					</p>
+					<p class="fragment roll-in">
+						Numerous CSS hacks to style consistently<br>
+						But beware of building your own...
+					</p>
+				</section>
+
+				<!-- #################### NUMBER ########################## -->
+
+				<section>
+					<h2>Number</h2>
+					<p>[Live Numeric field (hidden attr, step=any)]<p>
+					<p>
+						Exactly what is a valid number?<br>
+						<small>1 | -100.23 | 1234a | 1,234.00 | 000001.00000 | -6.23e01</small>
+					</p>
+					<p class="fragment roll-in">
+						<small>iOS 5+6 allows a comma entered (exactly) on the thousands mark (but doesn't submit it)</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Number</h2>
+					<p>The <em>min</em>, <em>max</em> and <em>step</em> value</p>
+					<p>[Live Numeric field (editable attrs)]<p>
+					<p>
+						<small>
+							An undefined 'step' value defaults to <em>1</em>.
+							<br/>
+						A 'step' value of <em>any</em> alows any floating point number</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Number</h2>
+					<p>Touch keypads</p>
+					<p>[Chrome keyboard, Samsung, iOS(default, pattern)]<p>
+					<p>
+						<small>Using the (invalid) pattern attribute <code>"[0-9]*"</code> invokes the iOS <em>Integer keypad</em></small>
+					</p>
+					<p class="fragment roll-in">
+						<small>DO NOT use iOS pattern if negative or decimal values are needed!</small>
+					</p>
+				</section>
+
+				<!-- #################### NUMERIC CODES ########################## -->
+
+				<section>
+					<h2>Numeric codes</h2>
+					<p>
+						So what about: Postcodes, Pins, Credit Cards &amp; Serial numbers, etc..?<br>
+						<small>Anything where each <em>characters</em> is more important than submitted <em>value</em></small>
+					<p>
+					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
+					<p class="fragment roll-in">
+						<em>If input uses ONLY DIGITS type="tel" is the <strong>only</strong> way to invoke the numeric keypad on all devices</em>
+					</p>
+					<p class="fragment roll-in">
+						<em>Allow desktop users to enter the value however they like</em>
+					</p>
+				</section>
+
+				<section>
+					<h2>Numeric codes</h2>
+					<p>
+						For IP addresses, Hex values or serials that include alpha characters?
+					<p>
+					<h3>type='text' is the only option</h3>
+					<div class="fragment roll-in">
+						<p><em>One day, maybe browsers will support <a href="" target="_blank">inputmode</a></em></p>
+						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content</small></p>
+					</div>
+					<h4 class="fragment roll-in">Current browsers that support this attribute:</h4>
+					<h1 class="fragment roll-in">0</h1>
+				</section>
+
+				<!-- ##################### DATES ######################### -->
+
+				<section>
+					<h2>Dates</h2>
+					<p>So many ways of inputting dates:</p>
+					<p>[text field] [selects] [tabbed input] [masked input] [datepicker] [native] [device native]</p>
+					<p><small>Native date input always submit in <strong>YYYY-MM-DD</strong> format</small></p>
+					<aside class="notes">
+						Best for Date of Birth: tabbed/masked <br>
+						Best for 'near' date: datepicker
+					</aside>
+				</section>
+
+				<!-- ##################### CONCLUSION ######################### -->
+
+				<section>
+					<h2>How can we use these in the real world?</h2>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Pros</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Native</th>
+								<td>
+									Browser managed<br>
+									Reliable<br>
+									Semantic<br>
+									Accessible
+								</td>
+							<tr>
+							<tr>
+								<th>JavaScript</td>
+								<td>
+									Consistent functionality<br>
+									Full styling control
+								</td>
+							<tr>
+							<tr>
+								<th>Pollyfill</th>
+								<td>
+									Efficient<br>
+									Progressive enhanced<br>
+									Future proof
+								</td>
+							<tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<p>
+						Native HTML inputs offer many advantages in terms of device interaction, markup, semantics, accessibility and future proofing
+					</p>
+					<br>
+					<p class="fragment roll-in">
+						Understand how they behave so you can use them appropriately and make conscious decisions about when to replace or pollyfill
+					</p>
+				</section>
+
+				<section>
+					<h1>thankyou</h1>
+					<h3>the end</h3>
+					<p><small><a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
