@@ -1,0 +1,126 @@
+/* Global
+*******************************************/
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  padding: 1.2em;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  color: #333333;
+  background: whitesmoke;
+}
+h2 {
+  margin: 0 0 0.3em;
+}
+p {
+  margin-top: 0;
+}
+.input {
+  display: block;
+  height: 2em;
+  width: 100%;
+  padding: 0.3em 0.6em;
+  background: white;
+  border: 1px solid #b3b3b3;
+  border-radius: 0.3em;
+  font-size: 1.2em;
+  -webkit-transition: border 0.2s, box-shadow 0.2s;
+          transition: border 0.2s, box-shadow 0.2s;
+}
+.input:hover {
+  border-color: skyblue;
+}
+.input:focus {
+  border-color: skyblue;
+  border-width: 6px;
+  outline: 0;
+}
+.input.select {
+  box-shadow: none;
+  background-image: -webkit-linear-gradient(bottom, #e6e6e6, #ffffff);
+  background-image: linear-gradient(to top, #e6e6e6, #ffffff);
+}
+form:not([novalidate]) input:valid {
+  color: #00cc00;
+  border-color: #00cc00;
+  background: #f5fff5;
+}
+form:not([novalidate]) input:invalid {
+  color: #ad102f;
+  border-color: #ad102f;
+  background: #fde8ec;
+}
+.readonly {
+  height: auto;
+  border-style: dashed;
+  color: #999999;
+  cursor: no-drop;
+}
+.check,
+.radio {
+  height: 1.9em;
+  width: 1.9em;
+  font-size: 1.2em;
+}
+/* Dynamic input form
+*******************************************/
+#dynamicForm {
+  margin-bottom: 1em;
+}
+#dynamicInput {
+  font-size: 2em;
+}
+#dynamicInput::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+#dynamicInput::-moz-placeholder {
+  color: #e6e6e6;
+}
+#dynamicInput:-ms-input-placeholder {
+  color: #e6e6e6;
+}
+#dynamicInput::placeholder {
+  color: #e6e6e6;
+}
+/* Dynamic input form
+*******************************************/
+label[for] {
+  cursor: pointer;
+}
+#settingsForm {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.ql-item {
+  display: table-row;
+}
+.ql-key,
+.ql-value {
+  display: table-cell;
+  padding: 0.2em;
+  vertical-align: middle;
+}
+.ql-key {
+  text-align: right;
+  white-space: nowrap;
+}
+.ql-value {
+  padding-left: 1em;
+  width: 100%;
+}
+.output {
+  display: inline-block;
+  width: 100%;
+  padding: 0.2em 0.6em;
+  border: dashed 1px turquoise;
+  border-radius: 0.2em;
+  font-size: 1.2em;
+  color: #1aa093;
+  background: rgba(64, 224, 208, 0.1);
+}

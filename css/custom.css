@@ -25,16 +25,35 @@
   vertical-align: baseline;
 }
 
+.reveal pre {
+  /*margin: 0.5em;*/
+}
+.reveal pre code {
+  padding: 0.5em;
+}
 
- .barList {
+.reveal iframe {
+  border-radius: 0.3em;
+  border: solid 2px #333;
+}
+
+
+
+
+
+.reveal .barList {
   margin: 0;
  }
- .barList li {
+.reveal .barList li {
   display: inline-block;
   padding: 0 0.6em 0 0.4em;
   border-right: solid 1px #CCC;
   list-style-type: none;
  }
- .barList li:last-child { border: none; }
+.reveal .barList li:last-child { border: none; }
+
+.reveal .lightText {
+   color: white;
+ }
 
 

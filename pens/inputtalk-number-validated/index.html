@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - InputTalk - Number, Validated</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/modernizr.js"></script>
+
+</head>
+
+<body>
+
+  <form action="#!" id="dynamicForm">
+  <label for="dynamicInput"><h2>Validated &lt;input type=&quot;number&quot;&gt;</h2></label>
+  <input 
+         id="dynamicInput"
+         class="input"
+         type="number" 
+         value="1"
+         step="any"
+         required
+         />
+</form>
+
+<form action="" id="settingsForm">
+
+  <div class="ql-item">
+    <div class="ql-key"><label><strong>value submitted:</strong></label></div>
+    <div class="ql-value"><output class="output" id="outputValue" for="dynamicInput">(none)</output></div>
+  </div>
+
+</form>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script src='http://afarkas.github.io/webshim/js-webshim/minified/polyfiller.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

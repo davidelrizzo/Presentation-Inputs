@@ -106,16 +106,16 @@
 				<section>
 					<h2>States</h2>
 					<div class="fragment roll-in">
-						<p>States for usability and accesibility</p>
+						<p>Usability and accesibility</p>
 						<p>[:hover]  [:focus]</p>
 					</div>
 					<div class="fragment roll-in">
-						<p>States for validation</p>
+						<p>Validation</p>
 						<p>[:valid]  [:invalid]</p>
 					</div>
 					<p class="fragment roll-in">
-						You can't use HTML/CSS validation in the real world without a JavaScript support<br>
-						<small>Unless client side validation is a <em>'nice to have'</em>.</small>
+						You can't use HTML/CSS validation in the real world without JavaScript support<br>
+						<small>Unless client side validation is <em>'nice to have'</em>.</small>
 					</p>
 				</section>
 
@@ -137,16 +137,16 @@
 
 				<section>
 					<h2>Basic inputs</h2>
-					<p class="fragment roll-in">
+					<p>
 						[text] Consider <em>autocomplete</em> and <em>spellcheck/autocorrect</em>
 					</p>
-					<p class="fragment roll-in">
+					<p>
 						[password] To show or not to show?
 					</p>
-					<p class="fragment roll-in">
+					<p>
 						[search] Browser styling &amp; Safari attributes 
 					</p>
-					<p class="fragment roll-in">
+					<p>
 						[tel] Telephone keypad<br>
 						[email] Email keypad<br>
 						[url] URL Keypad
@@ -191,34 +191,65 @@
 
 				<section>
 					<h2>Select</h2>
+					<div class="fragment roll-in">
+						<div style="display:table; width:100%">
+							<div style="display:table-cell;">
+								select
+								<pre><code data-trim contenteditable>
+<select>
+  <option>Please select</option>
+  <option value="ay">A</option>
+  <option value="bee">B</option>
+  <option value="see">C</option>
+</select>
+								</code></pre>
+							</div>
+							<div style="display:table-cell; vertical-align:middle; font-size:2em;">≠</div>
+							<div style="display:table-cell;">
+								menu dropdown
+								<pre><code data-trim contenteditable>
+<nav>
+  <h5>Jump to page:</h5>
+  <a href="x.html">Xanadu</a>
+  <a href="y.html">Yowza</a>
+  <a href="z.html">Zeta</a>
+</nav>
+								</code></pre>
+							</div><!-- table-cell -->
+						</div><!-- table -->
+					</div><!-- fragment -->
 					<p class="fragment roll-in">
-						select ≠ menu dropdown<br>
-						<img src="images/placeholder.jpg" height="300px">
-					</p>
-					<p class="fragment roll-in">
-						Numerous CSS hacks to style consistently<br>
-						But beware of building your own...
+						CSS: if you fight the system, there will be hacks<br>
+						Beware the dangers of JS replacement
 					</p>
 				</section>
 
 				<!-- #################### NUMBER ########################## -->
 
+				<section data-background="images/alice_fall.gif">
+					<h2 class="lightText">Number</h2>
+					<p class="lightText">type="number"</p>
+				</section>
+
 				<section>
 					<h2>Number</h2>
-					<p>[Live Numeric field (hidden attr, step=any)]<p>
+					<iframe src="pens/inputtalk-number-validated/index.html" width="100%" height="260"></iframe>
 					<p>
 						Exactly what is a valid number?<br>
-						<small>1 | -100.23 | 1234a | 1,234.00 | 000001.00000 | -6.23e01</small>
+						<small>1 | -100.23 | 1234a | 1,234.00 | 01 02 03 | 00001.00 | -6.23e01</small>
 					</p>
 					<p class="fragment roll-in">
-						<small>iOS 5+6 allows a comma entered (exactly) on the thousands mark (but doesn't submit it)</small>
+						<small>iOS 5+6 allows a comma entered (exactly) on the thousands mark but does not submit it</small>
+					</p>
+					<p class="fragment roll-in">
+						<small>Spaces are valid in Chrome &amp; IE, surrounding spaces only in Safari &amp; iOS but <strong><em>only</em></strong> IE submits them</small>
 					</p>
 				</section>
 
 				<section>
 					<h2>Number</h2>
 					<p>The <em>min</em>, <em>max</em> and <em>step</em> value</p>
-					<p>[Live Numeric field (editable attrs)]<p>
+					<iframe src="pens/inputtalk-number-attributes/index.html" width="100%" height="400"></iframe>
 					<p>
 						<small>
 							An undefined 'step' value defaults to <em>1</em>.
@@ -245,7 +276,7 @@
 					<h2>Numeric codes</h2>
 					<p>
 						So what about: Postcodes, Pins, Credit Cards &amp; Serial numbers, etc..?<br>
-						<small>Anything where each <em>characters</em> is more important than submitted <em>value</em></small>
+						<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small>
 					<p>
 					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
 					<p class="fragment roll-in">
@@ -334,7 +365,7 @@
 				</section>
 
 				<section>
-					<h1>thankyou</h1>
+					<h1>thank you</h1>
 					<h3>the end</h3>
 					<p><small><a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small></p>
 				</section>

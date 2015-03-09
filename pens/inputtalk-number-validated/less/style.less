@@ -1,0 +1,107 @@
+/* Global
+*******************************************/
+*, :before, :after { box-sizing: border-box; }
+body {
+  //max-width: 700px;
+  margin: 0 auto;
+  padding: 1.2em;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  color: hsl(0,0,20%);
+  background: whitesmoke;
+}
+h2 { margin: 0 0 0.3em; }
+p { margin-top: 0; }
+.input {
+  display: block;
+  height: 2em;
+  width: 100%;
+  padding: 0.3em 0.6em;
+  background: white;
+  border: 1px solid hsl(0,0,70%);
+  border-radius: 0.3em;
+  font-size: 1.2em;
+  transition: border 0.2s, box-shadow 0.2s;
+  &:hover { 
+    border-color: skyblue;
+  }
+  &:focus {
+    border-color: skyblue;
+    border-width: 6px;
+    outline: 0;
+  }
+  &.select {
+    box-shadow: none;
+    background-image: linear-gradient( to top, hsl(0,0,90%), hsl(0,0,100%));
+  }
+}
+form:not([novalidate]) input {
+  &:valid {
+    color: darken(lime,10%);
+    border-color: darken(lime,10%);
+    background: lighten(lime,48%)
+  }
+  &:invalid {
+    color: darken(crimson,10%);
+    border-color: darken(crimson,10%);
+    background: lighten(crimson,48%);
+  }
+}
+.readonly {
+  height: auto;
+  border-style: dashed;
+  color: hsl(0,0,60%);
+  cursor: no-drop;
+}
+.check, .radio {
+  height: 1.9em;
+  width: 1.9em;
+  font-size: 1.2em;
+}
+
+
+/* Dynamic input form
+*******************************************/
+#dynamicForm {  margin-bottom: 1em; }
+#dynamicInput { 
+  font-size: 2em;
+  &::placeholder { color: hsl(0,0,90%); }
+}
+
+
+/* Dynamic input form
+*******************************************/
+label[for] { cursor:pointer; }
+#settingsForm {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.ql-item {
+  display: table-row
+}
+.ql-key,
+.ql-value {
+  display: table-cell;
+  padding: 0.2em;
+  vertical-align: middle;
+}
+.ql-key {
+  text-align: right;
+  white-space: nowrap;
+}
+.ql-value {
+  padding-left: 1em;
+  width: 100%;
+}
+.output {
+  display: inline-block;
+  width: 100%;
+  padding: 0.2em 0.6em;
+  border: dashed 1px turquoise;
+  border-radius: 0.2em;
+  font-size: 1.2em;
+  color: darken(turquoise,20%);
+  background: fade(turquoise,10%);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - InputTalk - Number, attributes</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/modernizr.js"></script>
+
+</head>
+
+<body>
+
+  <form action="#!" id="dynamicForm">
+  <label for="dynamicInput"><h2>Configurable &lt;input type=&quot;number&quot;&gt;</h2></label>
+  <input 
+         id="dynamicInput"
+         class="input"
+         type="number" 
+         value="10"
+         step=""
+         required
+         />
+</form>
+
+<form action="" id="settingsForm" novalidate>
+
+  <div class="ql-item">
+    <div class="ql-key"><label><strong>value submitted:</strong></label></div>
+    <div class="ql-value"><output class="output" id="outputValue" for="dynamicInput">(none)</output></div>
+  </div>
+
+  <div class="ql-item">
+    <div class="ql-key"><label for="settings-min">min:</label></div>
+    <div class="ql-value"><input class="input" type="number" id="settings-min" placeholder="Undefined" value="0" /></div>
+  </div>
+
+  <div class="ql-item">
+    <div class="ql-key"><label for="settings-max">max:</label></div>
+    <div class="ql-value"><input class="input" type="number" id="settings-max" placeholder="Undefined" value="100" /></div>
+  </div>
+
+  <div class="ql-item">
+    <div class="ql-key"><label for="settings-step">step:</label></div>
+    <div class="ql-value"><input class="input" type="text" id="settings-step" placeholder="Undefined" value="" /></div>
+  </div>
+
+</form>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script src='http://afarkas.github.io/webshim/js-webshim/minified/polyfiller.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
