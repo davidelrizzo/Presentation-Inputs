@@ -97,7 +97,6 @@
 					<p>Interaction (UI/UX, behaviour)</p>
 					<p>Styling</p>
 					<p>Validation</p>
-					<br/>
 					<p><em>Understanding all 4 is key to designing best practice forms</em></p>
 				</section>
 
@@ -106,17 +105,17 @@
 				<section>
 					<h2>States</h2>
 					<div class="fragment roll-in">
-						<p>Usability and accesibility</p>
-						<p>[:hover]  [:focus]</p>
+						<p><strong>Usability and accessibility</strong></p>
+						<p><input class="input" placeholder=":hover & :focus" /></p>
 					</div>
 					<div class="fragment roll-in">
-						<p>Validation</p>
-						<p>[:valid]  [:invalid]</p>
+						<p><strong>Validation</strong></p>
+						<p><input class="input validate" placeholder=":invalid" pattern=":valid" required /></p>
+						<p>
+							You can't use HTML/CSS validation in the real world without JavaScript support<br>
+							<small>Unless client side validation is <em>'nice to have'</em>.</small>
+						</p>
 					</div>
-					<p class="fragment roll-in">
-						You can't use HTML/CSS validation in the real world without JavaScript support<br>
-						<small>Unless client side validation is <em>'nice to have'</em>.</small>
-					</p>
 				</section>
 
 				<!-- <section>
@@ -136,21 +135,33 @@
 				</section> -->
 
 				<section>
-					<h2>Basic inputs</h2>
+					<h2>Basic input types</h2>
+					<p><small>The <code>maxlength</code>, <code>minlength</code> and <code>pattern</code> attributes are valid for these inputs</small></p>
 					<p>
-						[text] Consider <em>autocomplete</em> and <em>spellcheck/autocorrect</em>
+						<input type="text" class="input small" size="10" placeholder="text" />
+						Consider <code>spellcheck</code>|<code>autocorrect</code>
 					</p>
 					<p>
-						[password] To show or not to show?
+						<input type="password" class="input small validate" size="10" placeholder="password" minlength="3" maxlength="6" required />
+						<code>minlength</code> in <img src="images/chrome.png" class="browser"/> 40+
 					</p>
 					<p>
-						[search] Browser styling &amp; Safari attributes 
+						<input type="search" class="input small" size="10" placeholder="search" results incremental />
+						<code>results=3</code> and <code>incremental</code>
 					</p>
 					<p>
-						[tel] Telephone keypad<br>
-						[email] Email keypad<br>
-						[url] URL Keypad
+						<input type="tel" class="input small validate" size="10" placeholder="tel" />
+						Telephone keypad<br>
 					</p>
+					<p>
+						<input type="email" class="input small validate" size="10" placeholder="email" />
+						Email keypad + Validation<br>
+					</p>
+					<p>
+						<input type="url" class="input small validate" size="10" placeholder="url" />
+						URL Keypad + Validation
+					</p>
+					
 				</section>
 
 				<section>
@@ -158,14 +169,78 @@
 					<p class="fragment roll-in">
 						<strong>autocomplete='off' is BAD UX!</strong><br>
 						Slows down form completion &amp; blocks password managers<br>
-						<small>Chrome 35+ ignores autocomplete="off"</small>
+						<small><img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"</small>
 					</p>
-					<br>
-					<p class="fragment roll-in">
-						Using autocomplete the <em>right</em> way:
-						<br>
-						[tokens]
-					</p>
+					<div class="fragment roll-in">
+						<p>Using autocomplete the <em>right</em> way:</p>
+						<ul class="column">
+							<li>"shipping"</li>
+							<li class="endbit">"billing"</li>
+							
+							<li>"name"</li>
+							<li>"honorific-prefix"</li>
+							<li>"given-name"</li>
+							<li>"additional-name"</li>
+							<li>"family-name"</li>
+							<li>"honorific-suffix"</li>
+							<li>"nickname"</li>
+							<li>"username"</li>
+							<li>"new-password"</li>
+						</ul>
+						<ul class="column">
+							<li>"current-password"</li>
+							<li>"organization-title"</li>
+							<li>"organization"</li>
+							<li>"street-address"</li>
+							<li>"address-line1"</li>
+							<li>"address-line2"</li>
+							<li>"country"</li>
+							<li>"country-name"</li>
+							<li>"postal-code"</li>
+							<li>"cc-name"</li>
+							<li>"cc-given-name"</li>
+							<li>"cc-additional-name"</li>
+						</ul>
+						<ul class="column">
+							<li>"cc-family-name"</li>
+							<li>"cc-number"</li>
+							<li>"cc-exp"</li>
+							<li>"cc-exp-month"</li>
+							<li>"cc-exp-year"</li>
+							<li>"cc-csc"</li>
+							<li>"cc-type"</li>
+							<li>"transaction-currency"</li>
+							<li>"transaction-amount"</li>
+							<li>"language"</li>
+							<li>"bday"</li>
+						</ul>
+						<ul class="column">
+							<li>"bday-day"</li>
+							<li>"bday-month"</li>
+							<li>"bday-year"</li>
+							<li>"sex"</li>
+							<li>"url"</li>
+							<li class="endbit">"photo"</li>
+							
+							<li>"home"</li>
+							<li>"work"</li>
+							<li>"mobile"</li>
+							<li>"fax"</li>
+							<li>"pager"</li>
+						</ul>
+						<ul class="column">	
+							<li>"tel"</li>
+							<li>"tel-country-code"</li>
+							<li>"tel-national"</li>
+							<li>"tel-area-code"</li>
+							<li>"tel-local"</li>
+							<li>"tel-local-prefix"</li>
+							<li>"tel-local-suffix"</li>
+							<li>"tel-extension"</li>
+							<li>"email"</li>
+							<li>"impp"</li>
+						</ul>
+					</div>
 					<!--<br>
 					<p class="fragment roll-in">
 						<em>A brief history of autocomplete as 'browser autofill'</em>
@@ -209,7 +284,7 @@
 								menu dropdown
 								<pre><code data-trim contenteditable>
 <nav>
-  <h5>Jump to page:</h5>
+  <h5>Menu</h5>
   <a href="x.html">Xanadu</a>
   <a href="y.html">Yowza</a>
   <a href="z.html">Zeta</a>
@@ -236,13 +311,15 @@
 					<iframe src="pens/inputtalk-number-validated/index.html" width="100%" height="260"></iframe>
 					<p>
 						Exactly what is a valid number?<br>
-						<small>1 | -100.23 | 1234a | 1,234.00 | 01 02 03 | 00001.00 | -6.23e01</small>
+						<small>1 | -100.23 | 00001.00 | 1234a | 1,234.00<sup class="special">[1]</sup> | 01 02 03<sup class="special">[2]</sup> | -6.23e01</small>
 					</p>
 					<p class="fragment roll-in">
-						<small>iOS 5+6 allows a comma entered (exactly) on the thousands mark but does not submit it</small>
+						<small class="special"> iOS 5+6 allows a comma (exactly) on the thousands mark but does not submit it</small>
 					</p>
 					<p class="fragment roll-in">
-						<small>Spaces are valid in Chrome &amp; IE, surrounding spaces only in Safari &amp; iOS but <strong><em>only</em></strong> IE submits them</small>
+						<small class="special"> Spaces are valid in Chrome &amp; IE, surrounding spaces only in Safari &amp; iOS<br>
+						  IE is the <strong><em>only</em></strong> one that submits them
+						</small>
 					</p>
 				</section>
 
@@ -266,7 +343,7 @@
 						<small>Using the (invalid) pattern attribute <code>"[0-9]*"</code> invokes the iOS <em>Integer keypad</em></small>
 					</p>
 					<p class="fragment roll-in">
-						<small>DO NOT use iOS pattern if negative or decimal values are needed!</small>
+						<small class="special">DO NOT use iOS pattern if negative or decimal values are possible!</small>
 					</p>
 				</section>
 
@@ -275,7 +352,7 @@
 				<section>
 					<h2>Numeric codes</h2>
 					<p>
-						So what about: Postcodes, Pins, Credit Cards &amp; Serial numbers, etc..?<br>
+						So what about Postcodes, Pins, Credit Cards &amp; Serial numbers, etc..?<br>
 						<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small>
 					<p>
 					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
@@ -288,13 +365,17 @@
 				</section>
 
 				<section>
-					<h2>Numeric codes</h2>
+					<h2>Other codes</h2>
+					<p>What can we do for things like IP addresses or Hex value?</p>
 					<p>
-						For IP addresses, Hex values or serials that include alpha characters?
-					<p>
-					<h3>type='text' is the only option</h3>
+						<input type="text" class="input small" size="10" value="172.16.254.1" />
+						<input type="text" class="input small" size="10" value="#BADA55" />
+					</p>
+					<h3 class="fragment roll-in">
+						type='text' is the only option
+					</h3>
 					<div class="fragment roll-in">
-						<p><em>One day, maybe browsers will support <a href="" target="_blank">inputmode</a></em></p>
+						<p><em>One day, maybe browsers will support <a href="https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute" target="_blank">inputmode</a></em></p>
 						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content</small></p>
 					</div>
 					<h4 class="fragment roll-in">Current browsers that support this attribute:</h4>
