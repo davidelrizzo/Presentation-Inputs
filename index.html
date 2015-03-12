@@ -49,7 +49,7 @@
 
 				<section>
 					<h2>Davide L Rizzo</h2>
-					<p>
+					<p style="margin-bottom:1em;">
 						<a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a>
 						<br/>
 						<a href="http://codepen.io/davidelrizzo" target="_blank">codepen.io/davidelrizzo</a>
@@ -59,7 +59,7 @@
 						<li>UX &amp; Front-End</li>
 						<li>12+ years</li>
 					</ul></p>
-					<p>I live in the space between coding and design</p>
+					<p><em>I live in the space between coding and design</em></p>
 				</section>
 
 				<!-- <section>
@@ -105,38 +105,22 @@
 				<section>
 					<h2>States</h2>
 					<div class="fragment roll-in">
-						<p><strong>Usability and accessibility</strong></p>
+						<p>Usability and accessibility</p>
 						<p><input class="input" placeholder=":hover & :focus" /></p>
 					</div>
 					<div class="fragment roll-in">
-						<p><strong>Validation</strong></p>
+						<p>Validation</p>
 						<p><input class="input validate" placeholder=":invalid" pattern=":valid" required /></p>
-						<p>
-							You can't use HTML/CSS validation in the real world without JavaScript support<br>
-							<small>Unless client side validation is <em>'nice to have'</em>.</small>
-						</p>
+						<p><small>
+							Validation before interaction is not user friendly.<br>
+							<code>:user-error</code> and <code>-moz-ui-invalid</code> try to solve this.<br>
+							JavaScript <a href="http://jqueryvalidation.org/" target="_blank">plugins</a> and <a href="http://afarkas.github.io/webshim/demos/" target="_blank">polyfills</a> can fix that and more.
+						</small></p>
 					</div>
 				</section>
 
-				<!-- <section>
-					<h2>The Buttons</h2>
-					<p class="fragment roll-in">
-						[submit] Use this to submit forms
-					</p>
-					<p class="fragment roll-in">
-						[button] Use this for functional things
-					</p>
-					<p class="fragment roll-in">
-						[image] Useless
-					</p>
-					<p class="fragment roll-in">
-						[reset] Bad usability
-					</p>
-				</section> -->
-
 				<section>
 					<h2>Basic input types</h2>
-					<p><small>The <code>maxlength</code>, <code>minlength</code> and <code>pattern</code> attributes are valid for these inputs</small></p>
 					<p>
 						<input type="text" class="input small" size="10" placeholder="text" />
 						Consider <code>spellcheck</code>|<code>autocorrect</code>
@@ -161,7 +145,7 @@
 						<input type="url" class="input small validate" size="10" placeholder="url" />
 						URL Keypad + Validation
 					</p>
-					
+					<p><small>The <code>maxlength</code>, <code>minlength</code> and <code>pattern</code> attributes are valid for these inputs</small></p>
 				</section>
 
 				<section>
@@ -329,16 +313,62 @@
 					<iframe src="pens/inputtalk-number-attributes/index.html" width="100%" height="400"></iframe>
 					<p>
 						<small>
-							An undefined 'step' value defaults to <em>1</em>.
+							An undefined <code>step</code> value defaults to <code>1</code>.
 							<br/>
-						A 'step' value of <em>any</em> alows any floating point number</small>
+						With <code>step="any"</code> any floating point number is valid</small>
 					</p>
 				</section>
 
 				<section>
 					<h2>Number</h2>
 					<p>Touch keypads</p>
-					<p>[Chrome keyboard, Samsung, iOS(default, pattern)]<p>
+
+					<table class="figureTable">
+						<tr>
+							<td>
+								<img src="images/number-iOS7-5s.jpg">
+								<figcaption>iOS7, 5s</figcaption>
+							</td>
+							<td>
+								<img src="images/pattern-iOS7-5s.jpg">	
+						<figcaption>iOS7, 5s, pattern</figcaption>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="images/number-google-chrome40-S3.jpg">	
+								<figcaption>Google, Chrome40, 3S</figcaption>
+							</td>
+							<td>
+								<img src="images/number-samsung-android4.3-S3.jpg">	
+								<figcaption>Samsung, Android4.3, 3S</figcaption>
+							</td>
+						</tr>
+					</table>
+
+					<!-- <figure>
+						<img src="images/number-iOS7-5s.jpg">	
+						<figcaption>iOS7, 5s</figcaption>
+					</figure>
+
+					<figure>
+						<img src="images/pattern-iOS7-5s.jpg">	
+						<figcaption>iOS7, 5s, pattern</figcaption>
+					</figure>
+
+					<br>
+
+					<figure>
+						<img src="images/number-google-chrome40-S3.jpg">	
+						<figcaption>Google, Chrome40, 3S</figcaption>
+					</figure>
+
+					<figure>
+						<img src="images/number-samsung-android4.3-S3.jpg">	
+						<figcaption>Samsung, Android4.3, 3S</figcaption>
+					</figure> -->
+
+					<!-- <p>[Chrome keyboard, Samsung, iOS(default, pattern)]<p> -->
 					<p>
 						<small>Using the (invalid) pattern attribute <code>"[0-9]*"</code> invokes the iOS <em>Integer keypad</em></small>
 					</p>
@@ -351,17 +381,19 @@
 
 				<section>
 					<h2>Numeric codes</h2>
-					<p>
-						So what about Postcodes, Pins, Credit Cards &amp; Serial numbers, etc..?<br>
-						<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small>
-					<p>
+					<p>So what about Postcodes, Pins, Credit Cards &amp; <br>Serial numbers, etc..?</p>
+					<p><label>PIN:</label> <input type="tel" class="input" value="0123" minlength="4" maxlength="4" pattern="[0-9]*" size="4" /><br>
+					<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small></p>
+					
 					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
-					<p class="fragment roll-in">
-						<em>If input uses ONLY DIGITS type="tel" is the <strong>only</strong> way to invoke the numeric keypad on all devices</em>
-					</p>
-					<p class="fragment roll-in">
-						<em>Allow desktop users to enter the value however they like</em>
-					</p>
+					<div  class="fragment roll-in">
+						<p>
+							<em>If input uses ONLY DIGITS <code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke the numeric keypad on all devices</em>
+						</p>
+						<p>
+							<em>Allow desktop users to enter the value however they like</em>
+						</p>
+						</div>
 				</section>
 
 				<section>
