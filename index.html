@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="lib/css/classic.css">
 		<link rel="stylesheet" href="lib/css/classic.date.css">
-		!<!-- <link rel="stylesheet" href="lib/css/default.css">
+		<!-- <link rel="stylesheet" href="lib/css/default.css">
 		<link rel="stylesheet" href="lib/css/default.date.css"> -->
 
 		<!-- Code syntax highlighting -->
@@ -54,11 +54,13 @@
 						<br/>
 						<a href="http://codepen.io/davidelrizzo" target="_blank">codepen.io/davidelrizzo</a>
 					</p>
-					<p><ul class="barList">
-						<li>Suncorp Group</li>
-						<li>UX &amp; Front-End</li>
-						<li>12+ years</li>
-					</ul></p>
+					<p>
+						<ul class="barList">
+							<li>UX &amp; Front-End</li>
+							<li>12+ years</li>
+							<li>Suncorp Group</li>
+						</ul>
+					</p>
 					<p><em>I live in the space between coding and design</em></p>
 				</section>
 
@@ -106,16 +108,25 @@
 					<h2>States</h2>
 					<div class="fragment roll-in">
 						<p>Usability and accessibility</p>
-						<p><input class="input" placeholder=":hover & :focus" /></p>
+						<p><input class="input" placeholder=":hover &amp; :focus" /></p>
 					</div>
 					<div class="fragment roll-in">
 						<p>Validation</p>
-						<p><input class="input validate" placeholder=":invalid" pattern=":valid" required /></p>
-						<p><small>
-							Validation before interaction is not user friendly.<br>
-							<code>:user-error</code> and <code>-moz-ui-invalid</code> try to solve this.<br>
-							JavaScript <a href="http://jqueryvalidation.org/" target="_blank">plugins</a> and <a href="http://afarkas.github.io/webshim/demos/" target="_blank">polyfills</a> can fix that and more.
-						</small></p>
+						<p>
+							<form action="#!">
+							<input class="input validate" placeholder=":invalid" pattern=":valid" required />
+							</form>
+						</p>
+						<p>
+							<small>
+								Native HTML/CSS validation is extremly useful.. but lacking<br>
+								a). Validation on page load<br>
+								b). Error messaging
+							</small>
+							<small>
+								JavaScript <a href="http://jqueryvalidation.org/" target="_blank">plugins</a> and <a href="http://afarkas.github.io/webshim/demos/" target="_blank">polyfills</a> can ease the pain
+							</small>
+						</p>
 					</div>
 				</section>
 
@@ -323,7 +334,7 @@
 					<h2>Number</h2>
 					<p>Virtual keyboards
 						<small class="fragment roll-in special">
-							DANGER: if you want to use number inputs for negatives or floating numbers
+							DANGER: if you want to use number inputs for negative or floating numbers
 						</small>
 					</p>
 					<table class="figureTable">
@@ -370,17 +381,14 @@
 					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
 					<div  class="fragment roll-in">
 						<p>
-							<em>If input uses ONLY DIGITS <code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke the numeric keypad on all devices</em>
-						</p>
-						<p>
-							<em>Allow desktop users to enter the value however they like</em>
+							<em>If input uses ONLY DIGITS <code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke a numeric keypad on all devices</em>
 						</p>
 						</div>
 				</section>
 
 				<section>
 					<h2>Other codes</h2>
-					<p>What can we do for things inputs like this?</p>
+					<p>What can we do for inputs like this?</p>
 					<p>
 						<label for="input-ip">IP address:</label>
 						<input id="input-ip" type="text" class="input small" size="10" value="172.16.254.1" />
@@ -401,27 +409,28 @@
 
 				<!-- ##################### DATES ######################### -->
 
+				<section data-background="images/gumbybum.gif">
+					<h2 class="lightText">Dates</h2>
+				</section>
 
 				<section>
 					<h2>Dates</h2>
 					<p style="margin-top:-20px;"><small>There are many ways of inputting dates:</small></p>
 
-					
-
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-								<label for="input-date-text">Text field: </label>
+								<label for="input-date-text">1. Text field: </label>
 								<input id="input-date-text" class="input small validate" type="text" placeholder="dd/mm/yyyy" 
-								pattern="\d\d/\d\d/\d\d\d\d" size="10" />
+								pattern="[0-3]\d/[0-1]\d/[1-2]\d\d\d" size="10" />
 							</p>
 							<p>Works on all browsers</p>
 							<p>Relies on user to get separators right</p>
-							<p>Near impossible to define all valid dates with <code>pattern</code> attribute</p>
+							<p>Pattern regex for leap years = bad idea</p>
 						</div>
 
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-									<label for="input-date-selects">Select boxes:</label>
+									<label for="input-date-selects">2. Select boxes:</label>
                   <select id="input-date-selects" class="input small" style="margin-right:0;" >
                       <option value="">dd</option>
                       <option value="1">01</option>
@@ -539,7 +548,7 @@
 
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-								<label for="input-date-tabbed">Tabbed inputs: </label>
+								<label for="input-date-tabbed">3. Tabbed inputs: </label>
 								<input id="input-date-tabbed" class="input small validate tabbedDate" type="tel" placeholder="dd" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
 								/
 								<input class="input small validate tabbedDate" type="tel" placeholder="mm" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
@@ -557,7 +566,7 @@
 
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-								<label for="input-date-masked">Masked input: </label>
+								<label for="input-date-masked">4. Masked input: </label>
 								<input id="input-date-masked" class="input small validate" type="text" placeholder="dd/mm/yyyy" size="10" />
 								<script type="text/javascript">
 									$("#input-date-masked").mask("99/99/9999");
@@ -571,7 +580,7 @@
 
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-								<label for="input-date-picker">Date picker: </label>
+								<label for="input-date-picker">5. Date picker: </label>
 								<input id="input-date-picker" class="input small" type="text" placeholder="Pick a date" size="16"/>
 								<br>
 								<small><a href="http://amsul.ca/pickadate.js/" target="_blank">pickdate.js</a></small>
@@ -585,16 +594,17 @@
 
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
-								<label for="input-date-native">Native date: </label>
+								<label for="input-date-native">6. Native date: </label>
 								<input 
 			           id="input-date-native"
 			           class="input small validate" 
 			           type="date"
 			           />
 							</p>
+							<p>Chrome basically does all good feature of previous examples</p>
 							<p>Always submit in <strong>YYYY-MM-DD</strong> format</p>
 							<p>Only supported by Chrome, Opera, Safari Mobile and Android 4.4+</p>
-							<p>Chrome has <em>all</em> good feature of previous examples</p>
+							
 							<p>Barrel roller on all modern touch devices</p>
 							<p>Requires JavaScript polyfill support like <a href="http://afarkas.github.io/webshim/demos/" target="_blank">Webshim</a></p>
 						</div>
@@ -603,6 +613,10 @@
 
 
 				<!-- ##################### CONCLUSION ######################### -->
+
+				<section data-background="images/bam.gif">
+					<h2 class="lightText">Conclusion</h2>
+				</section>
 
 				<section>
 					<h2>How can we use these in the real world?</h2>

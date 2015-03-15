@@ -1,0 +1,3 @@
+- scrap basic inputs page?
+- number example to one page, inpage not iframe
+- inputmode sentence really needed? custom keyboard discussion more worth while?
