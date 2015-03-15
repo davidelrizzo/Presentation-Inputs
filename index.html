@@ -18,22 +18,22 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="lib/css/classic.css">
+		<link rel="stylesheet" href="lib/css/classic.date.css">
+		!<!-- <link rel="stylesheet" href="lib/css/default.css">
+		<link rel="stylesheet" href="lib/css/default.date.css"> -->
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<script src="lib/js/jquery-1.11.2.min.js"></script>
+		<script src="lib/js/jquery.autotab.min.js"></script>
+		<script src="lib/js/jquery.maskedinput.min.js"></script>
+		<script src="lib/js/jquery.maskedinput.min.js"></script>
 	</head>
 
 	<body>
@@ -55,7 +55,7 @@
 						<a href="http://codepen.io/davidelrizzo" target="_blank">codepen.io/davidelrizzo</a>
 					</p>
 					<p><ul class="barList">
-						<li>Melbourne-based</li>
+						<li>Suncorp Group</li>
 						<li>UX &amp; Front-End</li>
 						<li>12+ years</li>
 					</ul></p>
@@ -248,7 +248,7 @@
 					<img src="images/placeholder.jpg">
 				</section> -->
 
-				<section>
+				<!-- <section>
 					<h2>Select</h2>
 					<div class="fragment roll-in">
 						<div style="display:table; width:100%">
@@ -274,14 +274,14 @@
   <a href="z.html">Zeta</a>
 </nav>
 								</code></pre>
-							</div><!-- table-cell -->
-						</div><!-- table -->
-					</div><!-- fragment -->
+							</div>
+						</div>
+					</div>
 					<p class="fragment roll-in">
 						CSS: if you fight the system, there will be hacks<br>
 						Beware the dangers of JS replacement
 					</p>
-				</section>
+				</section> -->
 
 				<!-- #################### NUMBER ########################## -->
 
@@ -315,66 +315,48 @@
 						<small>
 							An undefined <code>step</code> value defaults to <code>1</code>.
 							<br/>
-						With <code>step="any"</code> any floating point number is valid</small>
+						<code>step="any"</code> is valid for any floating point number</small>
 					</p>
 				</section>
 
 				<section>
 					<h2>Number</h2>
-					<p>Touch keypads</p>
-
+					<p>Virtual keyboards
+						<small class="fragment roll-in special">
+							DANGER: if you want to use number inputs for negatives or floating numbers
+						</small>
+					</p>
 					<table class="figureTable">
 						<tr>
 							<td>
 								<img src="images/number-iOS7-5s.jpg">
-								<figcaption>iOS7, 5s</figcaption>
+								<figcaption>iOS <em>number</em></figcaption>
 							</td>
 							<td>
 								<img src="images/pattern-iOS7-5s.jpg">	
-						<figcaption>iOS7, 5s, pattern</figcaption>
+								<figcaption>iOS <em>pattern="[0-9]*"</em></figcaption>
+							</td>
+							<td>
+								<img src="images/tel-iOS7-5s.jpg">	
+								<figcaption>iOS <em>tel</em></figcaption>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<img src="images/number-google-chrome40-S3.jpg">	
-								<figcaption>Google, Chrome40, 3S</figcaption>
+								<figcaption>Google <em>number</em></figcaption>
 							</td>
 							<td>
 								<img src="images/number-samsung-android4.3-S3.jpg">	
-								<figcaption>Samsung, Android4.3, 3S</figcaption>
+								<figcaption>Samsung <em>number</em> - Android</figcaption>
+							</td>
+							<td>
+								<img src="images/number-samsung-chrome40-S3.jpg">	
+								<figcaption>Samsung <em>number</em> - Chrome</figcaption>
 							</td>
 						</tr>
 					</table>
-
-					<!-- <figure>
-						<img src="images/number-iOS7-5s.jpg">	
-						<figcaption>iOS7, 5s</figcaption>
-					</figure>
-
-					<figure>
-						<img src="images/pattern-iOS7-5s.jpg">	
-						<figcaption>iOS7, 5s, pattern</figcaption>
-					</figure>
-
-					<br>
-
-					<figure>
-						<img src="images/number-google-chrome40-S3.jpg">	
-						<figcaption>Google, Chrome40, 3S</figcaption>
-					</figure>
-
-					<figure>
-						<img src="images/number-samsung-android4.3-S3.jpg">	
-						<figcaption>Samsung, Android4.3, 3S</figcaption>
-					</figure> -->
-
-					<!-- <p>[Chrome keyboard, Samsung, iOS(default, pattern)]<p> -->
-					<p>
-						<small>Using the (invalid) pattern attribute <code>"[0-9]*"</code> invokes the iOS <em>Integer keypad</em></small>
-					</p>
-					<p class="fragment roll-in">
-						<small class="special">DO NOT use iOS pattern if negative or decimal values are possible!</small>
-					</p>
+					
 				</section>
 
 				<!-- #################### NUMERIC CODES ########################## -->
@@ -398,34 +380,227 @@
 
 				<section>
 					<h2>Other codes</h2>
-					<p>What can we do for things like IP addresses or Hex value?</p>
+					<p>What can we do for things inputs like this?</p>
 					<p>
-						<input type="text" class="input small" size="10" value="172.16.254.1" />
-						<input type="text" class="input small" size="10" value="#BADA55" />
+						<label for="input-ip">IP address:</label>
+						<input id="input-ip" type="text" class="input small" size="10" value="172.16.254.1" />
+						
+						<label for="input-hex">Hex code:</label>
+						<input id="input-hex" type="text" class="input small" size="10" value="#BADA55" />
 					</p>
 					<h3 class="fragment roll-in">
 						type='text' is the only option
 					</h3>
 					<div class="fragment roll-in">
 						<p><em>One day, maybe browsers will support <a href="https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute" target="_blank">inputmode</a></em></p>
-						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content</small></p>
+						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content. Eg. virtual keyboard independent of input type.</small></p>
 					</div>
-					<h4 class="fragment roll-in">Current browsers that support this attribute:</h4>
-					<h1 class="fragment roll-in">0</h1>
+					<h4 class="fragment roll-in">Number of browsers that support this attribute:</h4>
+					<h1 class="fragment roll-in" style="margin-top:-20px;">0</h1>
 				</section>
 
 				<!-- ##################### DATES ######################### -->
 
+
 				<section>
 					<h2>Dates</h2>
-					<p>So many ways of inputting dates:</p>
-					<p>[text field] [selects] [tabbed input] [masked input] [datepicker] [native] [device native]</p>
-					<p><small>Native date input always submit in <strong>YYYY-MM-DD</strong> format</small></p>
-					<aside class="notes">
-						Best for Date of Birth: tabbed/masked <br>
-						Best for 'near' date: datepicker
-					</aside>
+					<p style="margin-top:-20px;"><small>There are many ways of inputting dates:</small></p>
+
+					
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+								<label for="input-date-text">Text field: </label>
+								<input id="input-date-text" class="input small validate" type="text" placeholder="dd/mm/yyyy" 
+								pattern="\d\d/\d\d/\d\d\d\d" size="10" />
+							</p>
+							<p>Works on all browsers</p>
+							<p>Relies on user to get separators right</p>
+							<p>Near impossible to define all valid dates with <code>pattern</code> attribute</p>
+						</div>
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+									<label for="input-date-selects">Select boxes:</label>
+                  <select id="input-date-selects" class="input small" style="margin-right:0;" >
+                      <option value="">dd</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                  </select>
+                  <select class="input small" style="margin-right:0;">
+                      <option value="">mm</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                  </select>
+                  <select class="input small" style="margin-right:0;">
+                      <option value="">yyyy</option>
+                      <option value="2000">2015</option>
+                      <option value="2000">2014</option>
+                      <option value="2000">2013</option>
+                      <option value="2000">2012</option>
+                      <option value="2000">2011</option>
+                      <option value="2000">2010</option>
+                      <option value="2000">2009</option>
+                      <option value="2000">2008</option>
+                      <option value="2000">2007</option>
+                      <option value="2000">2006</option>
+                      <option value="2000">2005</option>
+                      <option value="2000">2004</option>
+                      <option value="2000">2003</option>
+                      <option value="2000">2002</option>
+                      <option value="2000">2001</option>
+                      <option value="1999">1999</option>
+                      <option value="1998">1998</option>
+                      <option value="1997">1997</option>
+                      <option value="1996">1996</option>
+                      <option value="1995">1995</option>
+                      <option value="1994">1994</option>
+                      <option value="1993">1993</option>
+                      <option value="1992">1992</option>
+                      <option value="1991">1991</option>
+                      <option value="1990">1990</option>
+                      <option value="1989">1989</option>
+                      <option value="1988">1988</option>
+                      <option value="1987">1987</option>
+                      <option value="1986">1986</option>
+                      <option value="1985">1985</option>
+                      <option value="1984">1984</option>
+                      <option value="1983">1983</option>
+                      <option value="1982">1982</option>
+                      <option value="1981">1981</option>
+                      <option value="1980">1980</option>
+                      <option value="1979">1979</option>
+                      <option value="1978">1978</option>
+                      <option value="1977">1977</option>
+                      <option value="1976">1976</option>
+                      <option value="1975">1975</option>
+                      <option value="1974">1974</option>
+                      <option value="1973">1973</option>
+                      <option value="1972">1972</option>
+                      <option value="1971">1971</option>
+                      <option value="1970">1970</option>
+                      <option value="1969">1969</option>
+                      <option value="1968">1968</option>
+                      <option value="1967">1967</option>
+                      <option value="1966">1966</option>
+                      <option value="1965">1965</option>
+                      <option value="1964">1964</option>
+                      <option value="1963">1963</option>
+                      <option value="1962">1962</option>
+                      <option value="1961">1961</option>
+                      <option value="1960">1960</option>
+                      v
+                  </select>
+              </label>
+							</p>
+							<p>Cannot validate with HTML</p>
+							<p>List grows as valid date range does</p>
+							<p>Lots of scrolling for 'Date of Birth' selector</p>	
+						</div>
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+								<label for="input-date-tabbed">Tabbed inputs: </label>
+								<input id="input-date-tabbed" class="input small validate tabbedDate" type="tel" placeholder="dd" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
+								/
+								<input class="input small validate tabbedDate" type="tel" placeholder="mm" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
+								/
+								<input class="input small validate tabbedDate" type="tel" placeholder="yyyy" pattern="\d\d\d\d" maxlength="4" size="2" style="margin-right:0;">
+								<script type="text/javascript">
+									$('.tabbedDate').autotab('number');
+								</script>
+							</p>
+							<p>Good for 'Date of Birth' selector</p>
+							<p>Can prevent invalid character entry</p>
+							<p>Validation of entire date can be tricky</p>
+							<p>Using JS to interfere with tabbing is fraught with danger</p>
+						</div>
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+								<label for="input-date-masked">Masked input: </label>
+								<input id="input-date-masked" class="input small validate" type="text" placeholder="dd/mm/yyyy" size="10" />
+								<script type="text/javascript">
+									$("#input-date-masked").mask("99/99/9999");
+								</script>
+							</p>
+							<p>Good for 'Date of Birth' selector</p>
+							<p>Can prevent invalid character entry</p>
+							<p>Using JS to interfere with key press is fraught with danger</p>
+						</div>
+
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+								<label for="input-date-picker">Date picker: </label>
+								<input id="input-date-picker" class="input small" type="text" placeholder="Pick a date" size="16"/>
+								<br>
+								<small><a href="http://amsul.ca/pickadate.js/" target="_blank">pickdate.js</a></small>
+							</p>
+
+							<p>Annoying for dates far from default value. eg <em>Date of Birth</em></p>
+							<p>Difficult to do responsive well</p>
+							<p>Difficult to make accessible</p>
+						</div>
+
+
+						<div class="fragment roll-in inplace">
+							<p style="margin-bottom:40px;">
+								<label for="input-date-native">Native date: </label>
+								<input 
+			           id="input-date-native"
+			           class="input small validate" 
+			           type="date"
+			           />
+							</p>
+							<p>Always submit in <strong>YYYY-MM-DD</strong> format</p>
+							<p>Only supported by Chrome, Opera, Safari Mobile and Android 4.4+</p>
+							<p>Chrome has <em>all</em> good feature of previous examples</p>
+							<p>Barrel roller on all modern touch devices</p>
+							<p>Requires JavaScript polyfill support like <a href="http://afarkas.github.io/webshim/demos/" target="_blank">Webshim</a></p>
+						</div>
+
 				</section>
+
 
 				<!-- ##################### CONCLUSION ######################### -->
 
@@ -467,7 +642,7 @@
 					</table>
 				</section>
 
-				<section>
+				<!-- <section>
 					<p>
 						Native HTML inputs offer many advantages in terms of device interaction, markup, semantics, accessibility and future proofing
 					</p>
@@ -475,7 +650,7 @@
 					<p class="fragment roll-in">
 						Understand how they behave so you can use them appropriately and make conscious decisions about when to replace or pollyfill
 					</p>
-				</section>
+				</section> -->
 
 				<section>
 					<h1>thank you</h1>
@@ -486,6 +661,8 @@
 			</div>
 
 		</div>
+
+		<div id="#pickadate-container"></div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
@@ -513,6 +690,14 @@
 				]
 			});
 
+		</script>
+
+    <script src="lib/js/picker.js"></script>
+    <script src="lib/js/picker.date.js"></script>
+    <script type="text/javascript">
+			$('#input-date-picker').pickadate({
+				//container: '#pickadate-container'
+			});
 		</script>
 
 	</body>
