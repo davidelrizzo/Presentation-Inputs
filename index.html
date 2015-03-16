@@ -17,11 +17,9 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="lib/css/classic.min.css">
+		<link rel="stylesheet" href="lib/css/classic.min.date.css">
 		<link rel="stylesheet" href="css/custom.css">
-		<link rel="stylesheet" href="lib/css/classic.css">
-		<link rel="stylesheet" href="lib/css/classic.date.css">
-		<!-- <link rel="stylesheet" href="lib/css/default.css">
-		<link rel="stylesheet" href="lib/css/default.date.css"> -->
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -43,6 +41,7 @@
 
 				<section>
 					<h1>The secret life of HTML5 Inputs</h1>
+					<p><em>Understanding inputs to design better forms</em></p>
 				</section>
 
 				<!-- #################### ABOUT ME ########################## -->
@@ -56,18 +55,21 @@
 					</p>
 					<p>
 						<ul class="barList">
+							<li>Melbourne based</li>
 							<li>UX &amp; Front-End</li>
 							<li>12+ years</li>
-							<li>Suncorp Group</li>
 						</ul>
 					</p>
 					<p><em>I live in the space between coding and design</em></p>
 				</section>
 
-				<!-- <section>
-					<h2>Suncorp Group</h2>
+				<section>
+					<h2>
+						<img src="images/suncorp_logo.png" class="brandLogo" />
+						Suncorp Group
+					</h2>
+					<p><em>Personal, Business + Life insurance, Superannuation &amp; Banking</em></p>
 					<ul class="barList">
-						<li>Suncorp Insurance</li>
 						<li>AAMI</li>
 						<li>GIO</li>
 						<li>Bingle</li>
@@ -76,11 +78,12 @@
 						<li>Insure My Ride</li>
 						<li>Apia &nbsp;&nbsp;<small>...and like 10 more</small></li>
 					</ul>
+					<hr>
 					<p>
-						I work on Personal Insurance UX<br/>
-						I am the founder of the Suncorp front-end styleguide
+						<small style="font-size:0.9em; width:80%; line-height:1.3em;">Over the past 2 years I have worked on many complex insurance applications...
+						the search for <em>best practice</em> input interaction lead me to learn many things unavailable anywhere online or otherwise</small>
 					</p>
-				</section> -->
+				</section>
 
 				<!-- #################### INTRO ########################## -->
 
@@ -104,7 +107,7 @@
 
 				<!-- ##################### BASICS ######################### -->
 
-				<section>
+				<!-- <section>
 					<h2>States</h2>
 					<div class="fragment roll-in">
 						<p>Usability and accessibility</p>
@@ -128,46 +131,54 @@
 							</small>
 						</p>
 					</div>
-				</section>
+				</section> -->
 
 				<section>
 					<h2>Basic input types</h2>
 					<p>
+						Use the <code>maxlength</code> and <code>pattern</code> attributes to validate
+						<small>also <code>minlength</code> now works on <img src="images/chrome.png" class="browser"/> 40+</small>
+					</p>
+					<p>
 						<input type="text" class="input small" size="10" placeholder="text" />
-						Consider <code>spellcheck</code>|<code>autocorrect</code>
+						<input type="password" class="input small" size="10" placeholder="password" minlength="3" maxlength="6" />
+						<input type="search" class="input small" size="10" placeholder="search" results incremental style="border-radius:1em;" />
 					</p>
-					<p>
-						<input type="password" class="input small validate" size="10" placeholder="password" minlength="3" maxlength="6" required />
-						<code>minlength</code> in <img src="images/chrome.png" class="browser"/> 40+
-					</p>
-					<p>
-						<input type="search" class="input small" size="10" placeholder="search" results incremental />
-						<code>results=3</code> and <code>incremental</code>
+					<ul class="barList">
+						<li>Basic</li>
+						<li>Masked</li>
+						<li>Styled</li>
+					</ul>
 					</p>
 					<p>
 						<input type="tel" class="input small validate" size="10" placeholder="tel" />
-						Telephone keypad<br>
-					</p>
-					<p>
 						<input type="email" class="input small validate" size="10" placeholder="email" />
-						Email keypad + Validation<br>
-					</p>
-					<p>
 						<input type="url" class="input small validate" size="10" placeholder="url" />
-						URL Keypad + Validation
 					</p>
-					<p><small>The <code>maxlength</code>, <code>minlength</code> and <code>pattern</code> attributes are valid for these inputs</small></p>
+					<p>Virtual keyboard + Validation</p>
 				</section>
 
 				<section>
 					<h2>We need to talk about <em>autocomplete</em></h2>
-					<p class="fragment roll-in">
+					<!-- <img src="images/browser-autocomplete.png" style="margin-top:-20px;"/> -->
+
+					<input   
+	         id="username"
+	         name="username"
+	         class="input small"
+	         type="text"
+	         autocomplete="username"
+	         placeholder="username"
+	         style="margin-top:-20px;"
+	         />
+
+					<p class="fragment roll-in" >
 						<strong>autocomplete='off' is BAD UX!</strong><br>
 						Slows down form completion &amp; blocks password managers<br>
 						<small><img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"</small>
 					</p>
 					<div class="fragment roll-in">
-						<p>Using autocomplete the <em>right</em> way:</p>
+						<p>WHATWG: space separated <em>tokens</em>:</p>
 						<ul class="column">
 							<li>"shipping"</li>
 							<li class="endbit">"billing"</li>
@@ -207,9 +218,9 @@
 							<li>"transaction-currency"</li>
 							<li>"transaction-amount"</li>
 							<li>"language"</li>
-							<li>"bday"</li>
 						</ul>
 						<ul class="column">
+							<li>"bday"</li>
 							<li>"bday-day"</li>
 							<li>"bday-month"</li>
 							<li>"bday-year"</li>
@@ -221,9 +232,9 @@
 							<li>"work"</li>
 							<li>"mobile"</li>
 							<li>"fax"</li>
-							<li>"pager"</li>
 						</ul>
-						<ul class="column">	
+						<ul class="column">
+							<li>"pager"</li>
 							<li>"tel"</li>
 							<li>"tel-country-code"</li>
 							<li>"tel-national"</li>
@@ -294,7 +305,11 @@
 					</p>
 				</section> -->
 
+
+
 				<!-- #################### NUMBER ########################## -->
+
+
 
 				<section data-background="images/alice_fall.gif">
 					<h2 class="lightText">Number</h2>
@@ -302,6 +317,49 @@
 				</section>
 
 				<section>
+					<h2>Number</h2>
+					<p>
+						<small>What is a <em>valid</em> number and how do the <code>min</code>, <code>max</code> and <code>step</code> attributes work?</small>
+					</p>
+					<p>
+						<label for="input-number">Number:</label>
+						<input 
+		         id="input-number"
+		         class="input validate"
+		         type="number" 
+		         value="1"
+		         step="any"
+		         required
+		         style="width: 10em;"
+		         />
+
+	         	<p class="output">
+	         		<label for="settings-output">value submitted:</label>
+	         		<output id="settings-output" for="input-number">1</output>
+	         	</p>
+
+		        <p class="number-settings">
+	         		<label for="settings-min">min:</label>
+	         		<input id="settings-min"class="input" type="number" placeholder="Undefined" />
+	         		<label for="settings-max">max:</label>
+	         		<input id="settings-max"class="input" type="number" placeholder="Undefined" />
+	         		<label for="settings-step">step:</label>
+	         		<input id="settings-step"class="input" type="type" placeholder="Undefined" style="margin-right:0;"/>
+		         </p>
+					</p>
+					<p class="xfragment roll-in" style="margin-top:40px;">
+						<small class="xspecial smaller"> iOS 5+6 allows a comma (exactly) on the thousands mark but does not submit it</small>
+					</p>
+					<p class="xfragment roll-in">
+						<small class="xspecial smaller">
+							Only Android marks spaces as invalid,<br>
+							Safari &amp; iOS mark them invalid only <em>between</em> digits <br>
+							Only IE <em>submits them!</em>
+						</small>
+					</p>
+				</section>
+
+				<!-- <section>
 					<h2>Number</h2>
 					<iframe src="pens/inputtalk-number-validated/index.html" width="100%" height="260"></iframe>
 					<p>
@@ -316,9 +374,9 @@
 						  IE is the <strong><em>only</em></strong> one that submits them
 						</small>
 					</p>
-				</section>
+				</section> -->
 
-				<section>
+				<!-- <section>
 					<h2>Number</h2>
 					<p>The <em>min</em>, <em>max</em> and <em>step</em> value</p>
 					<iframe src="pens/inputtalk-number-attributes/index.html" width="100%" height="400"></iframe>
@@ -328,13 +386,13 @@
 							<br/>
 						<code>step="any"</code> is valid for any floating point number</small>
 					</p>
-				</section>
+				</section> -->
 
 				<section>
 					<h2>Number</h2>
 					<p>Virtual keyboards
 						<small class="fragment roll-in special">
-							DANGER: if you want to use number inputs for negative or floating numbers
+							DANGER: if you want to use number inputs for negative or decimal numbers
 						</small>
 					</p>
 					<table class="figureTable">
@@ -370,19 +428,29 @@
 					
 				</section>
 
+
+
+
 				<!-- #################### NUMERIC CODES ########################## -->
+
+
+
 
 				<section>
 					<h2>Numeric codes</h2>
-					<p>So what about Postcodes, Pins, Credit Cards &amp; <br>Serial numbers, etc..?</p>
-					<p><label>PIN:</label> <input type="tel" class="input" value="0123" minlength="4" maxlength="4" pattern="[0-9]*" size="4" /><br>
-					<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small></p>
+					<p>So what about Postcodes, Pins, Credit Cards etc..?</p>
+					<p>
+						<label>Serial number:</label>
+						<input type="tel" class="input" value="001 565 779 334" /><br>
+						<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small></p>
 					
-					<h3 class="fragment roll-in">There is no HTML5 'type' for these!</h3>
+					<h3 class="fragment roll-in">There is no HTML5 'type' for these</h3>
 					<div  class="fragment roll-in">
+						<p><em>Best to allow desktop users to enter hover they like</em></p>
 						<p>
-							<em>If input uses ONLY DIGITS <code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke a numeric keypad on all devices</em>
+							<em><code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke a numeric keyboard on all devices</em>
 						</p>
+						
 						</div>
 				</section>
 
@@ -396,18 +464,25 @@
 						<label for="input-hex">Hex code:</label>
 						<input id="input-hex" type="text" class="input small" size="10" value="#BADA55" />
 					</p>
-					<h3 class="fragment roll-in">
-						type='text' is the only option
-					</h3>
-					<div class="fragment roll-in">
+					<p class="fragment roll-in">
+						<em><code>type='text'</code> is the only option</em><br>
+						<span style="margin-top:-20px;">There is no virtual keyboard to support these</p>
+					</p>
+					<!-- <div class="fragment roll-in">
 						<p><em>One day, maybe browsers will support <a href="https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute" target="_blank">inputmode</a></em></p>
 						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content. Eg. virtual keyboard independent of input type.</small></p>
 					</div>
 					<h4 class="fragment roll-in">Number of browsers that support this attribute:</h4>
-					<h1 class="fragment roll-in" style="margin-top:-20px;">0</h1>
+					<h1 class="fragment roll-in" style="margin-top:-20px;">0</h1> -->
 				</section>
 
+
+
+
 				<!-- ##################### DATES ######################### -->
+
+
+
 
 				<section data-background="images/gumbybum.gif">
 					<h2 class="lightText">Dates</h2>
@@ -421,11 +496,11 @@
 							<p style="margin-bottom:40px;">
 								<label for="input-date-text">1. Text field: </label>
 								<input id="input-date-text" class="input small validate" type="text" placeholder="dd/mm/yyyy" 
-								pattern="[0-3]\d/[0-1]\d/[1-2]\d\d\d" size="10" />
+								pattern="\d\d/\d\d/\d\d\d\d" size="10" />
 							</p>
 							<p>Works on all browsers</p>
 							<p>Relies on user to get separators right</p>
-							<p>Pattern regex for leap years = bad idea</p>
+							<p>Use <code>pattern</code> to validate, but don't go too far</p>
 						</div>
 
 						<div class="fragment roll-in inplace">
@@ -542,7 +617,7 @@
               </label>
 							</p>
 							<p>Cannot validate with HTML</p>
-							<p>List grows as valid date range does</p>
+							<p>List grows as valid year range does</p>
 							<p>Lots of scrolling for 'Date of Birth' selector</p>	
 						</div>
 
@@ -554,12 +629,15 @@
 								<input class="input small validate tabbedDate" type="tel" placeholder="mm" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
 								/
 								<input class="input small validate tabbedDate" type="tel" placeholder="yyyy" pattern="\d\d\d\d" maxlength="4" size="2" style="margin-right:0;">
+								<br>
+								<small>
+									<a href="http://www.mathachew.com/sandbox/jquery-autotab" target="_blank">jquery.autotab</a>
+								</small>
 								<script type="text/javascript">
 									$('.tabbedDate').autotab('number');
 								</script>
 							</p>
 							<p>Good for 'Date of Birth' selector</p>
-							<p>Can prevent invalid character entry</p>
 							<p>Validation of entire date can be tricky</p>
 							<p>Using JS to interfere with tabbing is fraught with danger</p>
 						</div>
@@ -568,6 +646,7 @@
 							<p style="margin-bottom:40px;">
 								<label for="input-date-masked">4. Masked input: </label>
 								<input id="input-date-masked" class="input small validate" type="text" placeholder="dd/mm/yyyy" size="10" />
+								<br><small><a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">jquery.maskedinput</a></small>
 								<script type="text/javascript">
 									$("#input-date-masked").mask("99/99/9999");
 								</script>
@@ -582,11 +661,10 @@
 							<p style="margin-bottom:40px;">
 								<label for="input-date-picker">5. Date picker: </label>
 								<input id="input-date-picker" class="input small" type="text" placeholder="Pick a date" size="16"/>
-								<br>
-								<small><a href="http://amsul.ca/pickadate.js/" target="_blank">pickdate.js</a></small>
+								<br><small><a href="http://amsul.ca/pickadate.js/" target="_blank">pickdate.js</a></small>
 							</p>
 
-							<p>Annoying for dates far from default value. eg <em>Date of Birth</em></p>
+							<p>Annoying for dates far from default value. eg 'Date of Birth'</p>
 							<p>Difficult to do responsive well</p>
 							<p>Difficult to make accessible</p>
 						</div>
@@ -601,12 +679,45 @@
 			           type="date"
 			           />
 							</p>
-							<p>Chrome basically does all good feature of previous examples</p>
-							<p>Always submit in <strong>YYYY-MM-DD</strong> format</p>
-							<p>Only supported by Chrome, Opera, Safari Mobile and Android 4.4+</p>
-							
-							<p>Barrel roller on all modern touch devices</p>
-							<p>Requires JavaScript polyfill support like <a href="http://afarkas.github.io/webshim/demos/" target="_blank">Webshim</a></p>
+							<p><code>type="date"</code> always submits in <strong>YYYY-MM-DD</strong> format</p>
+							<p></p>
+							<!-- <p>Only supported by Chrome, Opera, Safari Mobile and Android 4.4+</p> -->
+							<p>Desktop browser support: 
+								<img src="images/chrome.png" class="browser" />
+								&amp;
+								<img src="images/opera.png" class="browser" />
+								only,
+							<p  style="margin-top:-35px;">
+								so requires JavaScript polyfill support like <a href="http://afarkas.github.io/webshim/demos/" target="_blank">Webshim</a>
+							</p>
+						</div>
+
+						<div class="fragment roll-in inplace">
+								<label for="input-date-native" style="display:inline-block; padding-bottom:20px;">
+									6. Native date (mobile)
+								</label>
+								<table class="figureTable">
+								<tr>
+									<td>
+										<img src="images/date-iOS7-5s.jpg">
+										<figcaption>iOS <em>date</em></figcaption>
+									</td>
+									<td>
+										<img src="images/date-google-chrome40-S3.jpg">	
+										<figcaption>Chrome <em>date</em></figcaption>
+									</td>
+									<td>
+										<img src="images/date-samsung-android4.3-S3.jpg">	
+										<figcaption>Android 4.3 <em>date</em></figcaption>
+									</td>
+								</tr>
+							</table>
+								
+
+							<p>Mobile support: Chrome, Safari &amp; Android 4.4+</p>
+							<p>
+								'Barrel roller' is now the <em>expected</em> experience on mobile</a>
+							</p>
 						</div>
 
 				</section>
@@ -614,11 +725,11 @@
 
 				<!-- ##################### CONCLUSION ######################### -->
 
-				<section data-background="images/bam.gif">
+				<!-- <section data-background="images/bam.gif">
 					<h2 class="lightText">Conclusion</h2>
-				</section>
+				</section> -->
 
-				<section>
+				<section data-transition="slide" data-background="#ffb13d" data-background-transition="zoom">
 					<h2>How can we use these in the real world?</h2>
 					<table>
 						<thead>
@@ -667,9 +778,16 @@
 				</section> -->
 
 				<section>
-					<h1>thank you</h1>
-					<h3>the end</h3>
-					<p><small><a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small></p>
+					<p>
+						Understanding the Markup, User interactions, Styling and Validation of form inputs is essential to using them in the right way.
+					</p>
+					<p>
+						Only then can you make informed decisions on what to use and how to deal with the inconsistencies.
+					</p>
+					<h3 style="margin-top:40px;">the end</h3>
+					<p style="margin-top:-20px;">
+						<small><a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small>
+					</p>
 				</section>
 
 			</div>
@@ -713,6 +831,8 @@
 				//container: '#pickadate-container'
 			});
 		</script>
+
+		<script src="js/custom.js"></script>
 
 	</body>
 </html>
