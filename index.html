@@ -80,8 +80,11 @@
 					</ul>
 					<hr>
 					<p>
-						<small style="font-size:0.9em; width:80%; line-height:1.3em;">Over the past two years I have worked on many complex insurance applications...
-						the search for <em>best practice</em> input interaction led me to learn many things unavailable anywhere online or otherwise</small>
+						<small style="font-size:0.9em; width:80%; line-height:1.3em;">
+						Over the past two years, my search for <em>&quot;best practice&quot;</em> form design has uncovered secrets of input interaction not available anywhere else</small>
+
+						<!-- <small style="font-size:0.9em; width:80%; line-height:1.3em;">Over the past two years I have worked on many complex insurance applications...
+						the search for <em>best practice</em> input interaction led me to learn many things unavailable anywhere online or otherwise</small> -->
 					</p>
 				</section>
 
@@ -162,21 +165,26 @@
 					<h2>We need to talk about <em>autocomplete</em></h2>
 					<!-- <img src="images/browser-autocomplete.png" style="margin-top:-20px;"/> -->
 
-					<input   
-	         id="username"
-	         name="username"
-	         class="input small"
-	         type="text"
-	         autocomplete="username"
-	         placeholder="username"
-	         style="margin-top:-20px;"
-	         />
+					<form action="#/5">
+						<input   
+		         id="username"
+		         name="username"
+		         class="input small"
+		         type="text"
+		         autocomplete="username"
+		         placeholder="username"
+		         style="margin-top:-20px;"
+		         />
+	         </form>
 
 					<p class="fragment roll-in" >
 						<strong>autocomplete='off' is BAD UX!</strong><br>
 						Slows down form completion &amp; blocks password managers<br>
-						<small><img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"</small>
+						<small class="fragment roll-in">
+							<img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"
+						</small>
 					</p>
+
 					<div class="fragment roll-in">
 						<p>WHATWG: space separated <em>tokens</em>:</p>
 						<ul class="column">
@@ -735,7 +743,7 @@
 					<h2 class="lightText">Conclusion</h2>
 				</section> -->
 
-				<section data-transition="slide" data-background="#ffb13d" data-background-transition="zoom">
+				<section data-background="#52c9d7" data-background-transition="zoom">
 					<h2>How can we use these in the real world?</h2>
 					<table>
 						<thead>
@@ -783,12 +791,16 @@
 					</p>
 				</section> -->
 
-				<section data-background="images/fathorse.gif">
-					<p class="lightText">Understanding how inputs<br>behave is essential to designing <br>best practice forms.</p>
-					<p class="lightText">It has nothing to do with this gif</p>
-					<h3 class="lightText" style="margin-top:40px;">Thank You</h3>
+				<section data-background="images/tree.jpg">
+					<h2 class="lightText">TAKEAWAY</h2>
+					<p class="lightText">
+						Understanding input behaviour across<br>	 
+						browsers and devices is essential to<br>
+						designing best practice forms
+					</p>
+					<h4 class="lightText" style="margin-top:40px;">Thank You</h4>
 					<p class="lightText" style="margin-top:-20px;">
-						<small><a href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small>
+						<small><a class="lightText" href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small>
 					</p>
 				</section>
 
