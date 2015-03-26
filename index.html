@@ -81,7 +81,7 @@
 					<hr>
 					<p>
 						<small style="font-size:0.9em; width:80%; line-height:1.3em;">
-						Over the past two years, my search for <em>&quot;best practice&quot;</em> form design has uncovered secrets of input interaction not available anywhere else</small>
+						Over the past two years, my search for <br> <em>&quot;best practice&quot; </em>form design has uncovered secrets of input interaction not available anywhere</small>
 
 						<!-- <small style="font-size:0.9em; width:80%; line-height:1.3em;">Over the past two years I have worked on many complex insurance applications...
 						the search for <em>best practice</em> input interaction led me to learn many things unavailable anywhere online or otherwise</small> -->
@@ -327,7 +327,7 @@
 				<section>
 					<h2>Number</h2>
 					<p>
-						<small>What is a <em>valid</em> number and how do the <code>min</code>, <code>max</code> and <code>step</code> attributes work?</small>
+						<small>What is a <em>valid </em>number and how do the <code>min</code>, <code>max</code> and <code>step</code> attributes work?</small>
 					</p>
 					<p>
 						<label for="input-number">Number:</label>
@@ -362,7 +362,7 @@
 						<small class="xspecial smaller">
 							Only Android marks spaces as invalid,<br>
 							Safari &amp; iOS mark them invalid only <em>between</em> digits <br>
-							Only IE <em>submits them!</em>
+							Only IE <em>submits them!&nbsp;</em>
 						</small>
 					</p>
 				</section>
@@ -407,29 +407,29 @@
 						<tr>
 							<td>
 								<img src="images/number-iOS7-5s.jpg">
-								<figcaption>iOS <em>number</em></figcaption>
+								<figcaption>iOS <em>number&nbsp;</em></figcaption>
 							</td>
 							<td>
 								<img src="images/pattern-iOS7-5s.jpg">	
-								<figcaption>iOS <em>pattern="[0-9]*"</em></figcaption>
+								<figcaption>iOS <em>pattern="[0-9]*"&nbsp;</em></figcaption>
 							</td>
 							<td>
 								<img src="images/tel-iOS7-5s.jpg">	
-								<figcaption>iOS <em>tel</em></figcaption>
+								<figcaption>iOS <em>tel&nbsp;</em></figcaption>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<img src="images/number-google-chrome40-S3.jpg">	
-								<figcaption>Google <em>number</em></figcaption>
+								<figcaption>Google <em>number&nbsp;</em></figcaption>
 							</td>
 							<td>
 								<img src="images/number-samsung-android4.3-S3.jpg">	
-								<figcaption>Samsung <em>number</em> - Android</figcaption>
+								<figcaption>Samsung <em>number&nbsp;</em> - Android</figcaption>
 							</td>
 							<td>
 								<img src="images/number-samsung-chrome40-S3.jpg">	
-								<figcaption>Samsung <em>number</em> - Chrome</figcaption>
+								<figcaption>Samsung <em>number&nbsp;</em> - Chrome</figcaption>
 							</td>
 						</tr>
 					</table>
@@ -450,7 +450,7 @@
 					<p>
 						<label>Serial number:</label>
 						<input type="tel" class="input" value="001 565 779 334" /><br>
-						<small>Anything where each <em>character</em> is more important than <em>value</em> submitted</small></p>
+						<small>Anything where each <em>character </em>is more important than <em>value </em>submitted</small></p>
 					
 					<h3 class="fragment roll-in">There is no HTML5 'type' for these</h3>
 					<div  class="fragment roll-in">
@@ -467,10 +467,10 @@
 					<p>What can we do for inputs like this?</p>
 					<p>
 						<label for="input-ip">IP address:</label>
-						<input id="input-ip" type="text" class="input small" size="10" value="172.16.254.1" />
+						<input id="input-ip" type="text" class="input small" size="12" value="172.16.254.1" />
 						
 						<label for="input-hex">Hex code:</label>
-						<input id="input-hex" type="text" class="input small" size="10" value="#BADA55" />
+						<input id="input-hex" type="text" class="input small" size="12" value="#DECAFF" />
 					</p>
 					<p class="fragment roll-in">
 						<em><code>type='text'</code> is the only option</em><br>
@@ -505,7 +505,7 @@
 							<p style="margin-bottom:40px;">
 								<label for="input-date-text">1. Text field: </label>
 								<input id="input-date-text" class="input small validate" type="text" placeholder="dd/mm/yyyy" 
-								pattern="\d\d/\d\d/\d\d\d\d" size="10" />
+								pattern="\d\d/\d\d/\d\d\d\d" size="12" />
 							</p>
 							<p>Works on all browsers</p>
 							<p>Relies on user to get separators right</p>
@@ -633,11 +633,11 @@
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
 								<label for="input-date-tabbed">3. Tabbed inputs: </label>
-								<input id="input-date-tabbed" class="input small validate tabbedDate" type="tel" placeholder="dd" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
+								<input id="input-date-tabbed" class="input small validate tabbedDate" type="tel" placeholder="dd" pattern="\d\d" maxlength="2" size="3" style="margin-right:0;">
 								/
-								<input class="input small validate tabbedDate" type="tel" placeholder="mm" pattern="\d\d" maxlength="2" size="1" style="margin-right:0;">
+								<input class="input small validate tabbedDate" type="tel" placeholder="mm" pattern="\d\d" maxlength="2" size="3" style="margin-right:0;">
 								/
-								<input class="input small validate tabbedDate" type="tel" placeholder="yyyy" pattern="\d\d\d\d" maxlength="4" size="2" style="margin-right:0;">
+								<input class="input small validate tabbedDate" type="tel" placeholder="yyyy" pattern="\d\d\d\d" maxlength="6" size="4" style="margin-right:0;">
 								<br>
 								<small>
 									<a href="http://www.mathachew.com/sandbox/jquery-autotab" target="_blank">jquery.autotab</a>
@@ -654,7 +654,7 @@
 						<div class="fragment roll-in inplace">
 							<p style="margin-bottom:40px;">
 								<label for="input-date-masked">4. Masked input: </label>
-								<input id="input-date-masked" class="input small validate" type="text" placeholder="dd/mm/yyyy" size="10" />
+								<input id="input-date-masked" class="input small validate" type="text" placeholder="dd/mm/yyyy" size="12" />
 								<br><small><a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">jquery.maskedinput</a></small>
 								<script type="text/javascript">
 									$("#input-date-masked").mask("99/99/9999");
@@ -717,7 +717,7 @@
 									</td>
 									<td>
 										<img src="images/date-samsung-android4.3-S3.jpg">	
-										<figcaption>Android 4.3 <em>date</em></figcaption>
+										<figcaption>Samsung 4.3 <em>date</em></figcaption>
 									</td>
 								</tr>
 							</table>

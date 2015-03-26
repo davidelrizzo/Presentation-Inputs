@@ -4,6 +4,10 @@
 
 /* BASICS */
 
+.reveal input {
+  font-family: 'Lato', sans-serif;
+}
+
 .reveal h1 em,
 .reveal h2 em,
 .reveal h3 em,
@@ -47,7 +51,7 @@
   padding: 0.1em;
   border-radius: 0.2em;
   font-style: normal;
-  background: #f7f0e1; 
+  background: #eadec7; /*#f7f0e1;*/ 
   color: #664e1a;
 }
 
@@ -158,6 +162,7 @@
 .reveal .figureTable img {
   max-height: 160px;
   margin: 0;
+  box-shadow: 1px 1px 3px #CCC
 }
 
 
