@@ -8,6 +8,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+.reveal h1 {
+  font-size: 4.6em;
+}
+
 .reveal h1 em,
 .reveal h2 em,
 .reveal h3 em,
@@ -48,7 +52,7 @@
 
 .reveal code {
   display: inline-block;
-  padding: 0.1em;
+  padding: 0.1em 0.3em;
   border-radius: 0.2em;
   font-style: normal;
   background: #eadec7; /*#f7f0e1;*/ 
@@ -68,7 +72,8 @@
 
 ::selection {
   color: white;
-  background: turquoise;
+  /*background: turquoise;*/
+  background: black;
   text-shadow: none; 
 }
 
@@ -92,6 +97,12 @@
 
 /* CUSTOM */
 
+.reveal .highlight {
+  color: #664e1a;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 .reveal .brandLogo {
   display: inline-block;
   vertical-align: middle;
@@ -113,7 +124,7 @@
 
 .reveal .lightText {
    color: white;
-   text-shadow: 1px 1px 2px black;
+   text-shadow: 2px 2px 4px black;
  }
 
  .reveal .column {
@@ -195,11 +206,11 @@
 .reveal .input {
   box-sizing: border-box;
   display: inline-block;
-  height: 2em;
+  /*line-height: 1em;*/
   margin: 0 0.8em 0.3em 0.2em;
-  padding: 0.2em 0.4em;
+  padding: 0.4em 0.6em;
   background: white;
-  border: 2px solid grey;
+  border: 3px solid skyblue;
   border-radius: 0.3em;
   font-size: 1em;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -211,14 +222,16 @@
   font-size: 0.8em;
 }
 .reveal .input:hover { 
-  border-color: skyblue;
-  /*box-shadow: inset 0px 0px 6px skyblue;*/
+  /*border-color: skyblue;*/
+  box-shadow: 0 0 0 0.1em rgba(135, 206, 235, 0.5);
 }
 .reveal .input:focus {
   border-color: skyblue;
-  border-width: 0.18em;
+  /*border-width: 0.18em;*/
   outline: 0;
-  /*box-shadow: none;*/
+  box-shadow: 
+    0 0 0 0 rgba(135, 206, 235, 0.5),
+    inset 0 0 0 0.15em skyblue;
 }
 .reveal .input::-webkit-input-placeholder {
    color: lightgrey;
@@ -228,6 +241,14 @@
   border-color: #00cc00;
   background: #f5fff5
 }
+.reveal .input.validate:valid:hover {
+  box-shadow: 0 0 0 0.1em rgba(0, 204, 0, 0.5);
+}
+.reveal .input.validate:valid:focus {
+  box-shadow: 
+    0 0 0 0 rgba(135, 206, 235, 0.5),
+    inset 0 0 0 0.15em #00cc00;
+}
 .reveal .input.validate:valid::-webkit-input-placeholder {
   color: #b8dbb8
 }
@@ -235,6 +256,14 @@
   color: #ad102f;
   border-color: #ad102f;
   background: #fde8ec;
+}
+.reveal .input.validate:invalid:hover {
+  box-shadow: 0 0 0 0.1em rgba(173, 16, 47, 0.2);
+}
+.reveal .input.validate:invalid:focus {
+  box-shadow: 
+    0 0 0 0 rgba(135, 206, 235, 0.75),
+    inset 0 0 0 0.15em #ad102f;
 }
 .reveal .input.validate:invalid::-webkit-input-placeholder {
   color: #ea9dab;
@@ -265,9 +294,9 @@
   font-size: 0.8em;
 }
 .number-settings .input {
-  width: 6.1em;
+  width: 7em;
   font-size: 0.7em;
-  height: 2em;
+  /*height: 2em;*/
 }
 
 

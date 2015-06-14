@@ -1,2 +1,0 @@
-- can we use 'tel' for IP address input?
-- better conclusion GIF
