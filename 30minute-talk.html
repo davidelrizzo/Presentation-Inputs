@@ -41,7 +41,7 @@
 
 				<section>
 					<h1>The secret<br>life of Inputs</h1>
-					<p><em>Understanding inputs to design better online forms</em></p>
+					<p><em>Understanding inputs to design better forms</em></p>
 				</section>
 
 				<!-- #################### ABOUT ME ########################## -->
@@ -93,7 +93,7 @@
 					<p>Interaction <span class="highlight">- UI/UX, Behaviour</span></p>
 					<p>Styling <span class="highlight">- CSS</span></p>
 					<p>Validation <span class="highlight">- HTML &amp; JavaScript</span></p>
-					<p><em>Understanding all four is key to designing best practice forms</em></p>
+					<p><em>Understanding all four is key to designing optimal forms</em></p>
 				</section>
 
 				<!-- <section>
@@ -108,7 +108,33 @@
 				<!-- ##################### BASICS ######################### -->
 
 				<section>
-					<h2>Interactive states</h2>
+					<h2>Basic input types</h2>
+					
+					<p style="padding-bottom:0.8em;">
+						<input type="text" class="input small" size="10" placeholder="text" />
+						<input type="password" class="input small" size="10" placeholder="password" />
+						<input type="search" class="input small" size="10" placeholder="search" results incremental style="border-radius:1em;" />
+					</p>
+					<!-- <ul class="barList" style="padding-bottom:0.8em;">
+						<li>Basic</li>
+						<li>Masked</li>
+						<li>Styled</li>
+					</ul> -->
+					<p style="padding-bottom:0.3em;">
+						<input type="tel" class="input small validate" size="10" placeholder="tel" />
+						<input type="email" class="input small validate" size="10" placeholder="email" />
+						<input type="url" class="input small validate" size="10" placeholder="url" />
+					</p>
+					<!-- <p>Virtual keyboard + Validation</p> -->
+					<p>
+						Use <code>maxlength</code> and <code>pattern</code> attributes to validate
+						<!-- <small>also <code>minlength</code> now works on <img src="images/chrome.png" class="browser"/> 40+</small> -->
+					</p>
+					<p><small><code>maxlength</code> also <em>prevents</em> an invalid number of characters</small></p>
+				</section>
+
+				<section>
+					<h2>Interaction states</h2>
 					<div class="xfragment roll-in">
 						<p>Usability and Accessibility</p>
 						<p><input class="input" placeholder=":hover &amp; :focus" /></p>
@@ -123,7 +149,7 @@
 						<p class="xfragment roll-in">
 							<small>
 								The three main concerns with native browser validation:<br>
-								1). Inconsistent <a href="http://caniuse.com/#feat=form-validation" target="_blank">support</a> <small>(IE 10+)</small><br>
+								1). Inconsistent <a href="http://caniuse.com/#feat=form-validation" target="_blank">support</a> <small>(~IE 10+)</small><br>
 								2). Validation on page load<br>
 								3). Error messaging
 							</small>
@@ -134,32 +160,7 @@
 					</div>
 				</section>
 
-				<section>
-					<h2>Basic input types</h2>
-					<p style="padding-bottom:0.8em;">
-						Use the <code>maxlength</code> and <code>pattern</code> attributes to validate
-						<!-- <small>also <code>minlength</code> now works on <img src="images/chrome.png" class="browser"/> 40+</small> -->
-					</p>
-					<p style="padding-bottom:0.8em;">
-						<input type="text" class="input small" size="10" placeholder="text" />
-						<input type="password" class="input small" size="10" placeholder="password" minlength="3" maxlength="6" />
-						<input type="search" class="input small" size="10" placeholder="search" results incremental style="border-radius:1em;" />
-					</p>
-					<!-- <ul class="barList" style="padding-bottom:0.8em;">
-						<li>Basic</li>
-						<li>Masked</li>
-						<li>Styled</li>
-					</ul> -->
-					<p style="padding-bottom:0.3em;">
-						<input type="tel" class="input small validate" size="10" placeholder="tel" />
-						<input type="email" class="input small validate" size="10" placeholder="email" />
-						<input type="url" class="input small validate" size="10" placeholder="url" />
-					</p>
-					<!-- <p>Virtual keyboard + Validation</p> -->
-					<p><small><code>maxlength</code> also prevents too many characters</small></p>
-				</section>
-
-				<section>
+				<!-- <section>
 					<h2>Select</h2>
 					<div class="xfragment roll-in">
 						<div style="display:table; width:100%">
@@ -202,13 +203,21 @@
 						CSS: if you fight the system, there will be hacks<br>
 						Beware the dangers of JS replacement
 					</p>
+				</section> -->
+
+
+				<!-- #################### AUTOFILL ########################## -->
+
+				<section data-background="images/swing-you-are-doing-it-wrong_o_631288.gif">
+					<h2 class="lightText">AUTOFILL</h2>
+					<h3 class="lightText">You're doing it wrong</h3>
 				</section>
 
 				<section>
-					<h2>We need to talk about <em>autocomplete</em></h2>
+					<h2>Browser autofill</h2>
 					<!-- <img src="images/browser-autocomplete.png" style="margin-top:-20px;"/> -->
 
-					<form action="#/5">
+					<form action="#/5" style="margin:1em 0;">
 						<input   
 		         id="username"
 		         name="username"
@@ -218,18 +227,58 @@
 		         placeholder="username"
 		         style="margin-top:-20px;"
 		         />
-	         </form>
+	        </form>
 
-					<p class="fragment roll-in" >
-						<strong>autocomplete='off' is BAD UX!</strong><br>
+	        <p class="fragment roll-in">
+						<strong><code>autocomplete="off"</code> is BAD UX!</strong><br>
 						Slows down form completion &amp; blocks password managers<br>
-						<small class="fragment roll-in">
+						<!-- <small class="fragment roll-in">
 							<img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"
-						</small>
+						</small> -->
+					</p>
+					<hr>
+	        <p class="fragment roll-in">
+	        	As of 
+	        	<img src="images/internet-explorer.png" class="browser"/><em>IE 11</em>, 
+	        	<img src="images/chrome.png" class="browser"/><em>Chrome 34</em> and 
+	        	<img src="images/firefox.png" class="browser"/><em>Firefox 30</em><br> 
+	        	<small><code>autocomplete="off"</code></small> is <strong>ignored</strong> for <small><code>&lt;input type="password"/&gt;</code></small></em>
+	        </p>
+
+				</section>
+
+				<section>
+					<h3>A brief history of browser autofill</h3>
+
+					<ol>
+						<li class="fragment roll-in">
+							Heuristic
+							<small style="margin-top:0.3em;">Early browsers used <code>label</code>, <code>name</code>, <code>value</code> and other surrounding text to determine what the field was for.</small>
+							<small style="margin-top:0.3em;"><strong>Note:</strong> Modern browsers still fall back to this technique when no better information is available</small>
+						</li>
+						<li class="fragment roll-in">
+							The <code>x-autocompletetype</code> attribute
+							<small style="margin-top:0.3em;">
+								<img src="images/chrome.png" class="browser"/><em>Chrome 15</em>, 
+								<img src="images/firefox.png" class="browser"/><em>Firefox 4</em> and 
+								<img src="images/safari.png" class="browser"/><em>Safari 5</em> 
+								introduced an experimental attribute to specify what a field was for, eg. <code>x-autocompletetype="email"</code></small>
+						</li>
+					</ol>
+				</section>
+
+
+				<section>
+					<h3>So what is best practice now?</h3>
+					
+					<p style="margin-bottom:1em;">
+							3. 
+							<a href="https://html.spec.whatwg.org/multipage/forms.html#attr-fe-autocomplete" target="_blank">WHATWG:</a> 
+							recommends autocomplete tokens<br>
+						<small>eg. <code>autocomplete="billing tel mobile"</code></small>
 					</p>
 
-					<div class="fragment roll-in">
-						<p>WHATWG: space separated <em>tokens</em>:</p>
+					<div class="xfragment roll-in">
 						<ul class="column">
 							<li>"shipping"</li>
 							<li class="endbit">"billing"</li>
@@ -298,28 +347,8 @@
 							<li>"impp"</li>
 						</ul>
 					</div>
-					<!--<br>
-					<p class="fragment roll-in">
-						<em>A brief history of autocomplete as 'browser autofill'</em>
-					</p>
-					<p class="fragment roll-in">
-						Heuristic
-					</p>
-					<p class="fragment roll-in">
-						x-autocompletetype - C15,FF4,Safari5)
-					</p>
-					<p class="fragment roll-in">
-						autocomplete tokens <small>(WHATWG: not just 'off' or 'on')</small>
-					</p>
-					<p class="fragment roll-in">
-						Ignore 'off' value (C35)
-					</p> -->
-				</section>
 
-				<!-- <section>
-					<h3>Just what are <em>autocomplete</em> tokens?</h3>
-					<img src="images/placeholder.jpg">
-				</section> -->
+				</section>
 
 
 
@@ -484,11 +513,12 @@
 						<em><code>type='text'</code> is the only option</em><br>
 						<span style="margin-top:-20px;">There is no virtual keyboard to support these</p>
 					</p>
-					<!-- <div class="fragment roll-in">
-						<p><em>One day, maybe browsers will support <a href="https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute" target="_blank">inputmode</a></em></p>
-						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content. Eg. virtual keyboard independent of input type.</small></p>
+					<hr>
+					<div class="fragment roll-in">
+						<p><em>Hopefully soon browsers will support <a href="https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute" target="_blank">inputmode</a></em></p>
+						<p><small>WHATWG attribute that specifies the mechanism which would be most helpful for entering content. <em>eg. virtual keyboard independent of input type</em></small></p>
 					</div>
-					<h4 class="fragment roll-in">Number of browsers that support this attribute:</h4>
+					<!-- <h4 class="fragment roll-in">Number of browsers that support this attribute:</h4>
 					<h1 class="fragment roll-in" style="margin-top:-20px;">0</h1> -->
 				</section>
 
