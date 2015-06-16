@@ -64,11 +64,11 @@
 				</section>
 
 				<section>
-					<h2>
+					<h2 style="margin-bottom:0.5em;">
 						<img src="images/suncorp_logo.png" class="brandLogo" />
 						Suncorp Group
 					</h2>
-					<p><em>Personal, Business + Life Insurance, Superannuation &amp; Banking</em></p>
+					<p style="margin-bottom:1em;"><em>Personal, Business, Life Insurance, Superannuation &amp; Banking</em></p>
 					<ul class="barList">
 						<li>AAMI</li>
 						<li>GIO</li>
@@ -78,11 +78,11 @@
 						<li>Insure My Ride</li>
 						<li>Apia &nbsp;&nbsp;<small>...and many more</small></li>
 					</ul>
-					<hr>
+					<!-- <hr>
 					<p>
 						<small style="font-size:0.9em; width:80%; line-height:1.3em;">
 						Over the past two years, my search for <br> <em>'best practice' </em>form design has uncovered secrets of input interaction not available anywhere else</small>
-					</p>
+					</p> -->
 				</section>
 
 				<!-- #################### INTRO ########################## -->
@@ -209,12 +209,12 @@
 				<!-- #################### AUTOFILL ########################## -->
 
 				<section data-background="images/swing-you-are-doing-it-wrong_o_631288.gif">
-					<h2 class="lightText">AUTOFILL</h2>
+					<h1 class="lightText">AUTOFILL</h1>
 					<h3 class="lightText">You're doing it wrong</h3>
 				</section>
 
 				<section>
-					<h2>Browser autofill</h2>
+					<h3>Browser autofill/autocomplete</h3>
 					<!-- <img src="images/browser-autocomplete.png" style="margin-top:-20px;"/> -->
 
 					<form action="#/5" style="margin:1em 0;">
@@ -232,6 +232,7 @@
 	        <p class="fragment roll-in">
 						<strong><code>autocomplete="off"</code> is BAD UX!</strong><br>
 						Slows down form completion &amp; blocks password managers<br>
+						<small>(Only turn 'off' for Credit Card CCV number)</small>
 						<!-- <small class="fragment roll-in">
 							<img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"
 						</small> -->
@@ -543,7 +544,7 @@
 							<p style="margin-bottom:40px;">
 								<label for="input-date-text">1. Text field: </label>
 								<input id="input-date-text" class="input small validate" type="text" placeholder="dd/mm/yyyy" 
-								pattern="\d\d/\d\d/\d\d\d\d" size="12" />
+								pattern="\d\d(/|-)\d\d(/|-)\d\d\d\d" size="12" />
 							</p>
 							<p>Works on all browsers</p>
 							<p>Relies on user to get separators right</p>
@@ -666,6 +667,7 @@
 							<p>Cannot validate with HTML</p>
 							<p>List grows as valid year range increases</p>
 							<p>Lots of scrolling for 'Date of Birth' selector</p>	
+							<p>Submits three separate values</p>
 						</div>
 
 						<div class="fragment roll-in inplace">
