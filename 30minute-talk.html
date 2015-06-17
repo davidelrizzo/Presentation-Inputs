@@ -209,8 +209,11 @@
 				<!-- #################### AUTOFILL ########################## -->
 
 				<section data-background="images/swing-you-are-doing-it-wrong_o_631288.gif">
-					<h1 class="lightText">AUTOFILL</h1>
-					<h3 class="lightText">You're doing it wrong</h3>
+					<!-- <h1 class="lightText">AUTOFILL</h1>
+					<h3 class="lightText">You're doing it wrong</h3> -->
+
+					<h2 class="lightText">Autofill</h2>
+					<p class="lightText">You're doing it wrong</p>
 				</section>
 
 				<section>
@@ -358,26 +361,29 @@
 
 
 				<section data-background="images/alice_fall.gif">
-					<h2 class="lightText">Number</h2>
-					<p class="lightText">type="number"</p>
+					<h2 class="lightText">type="number"</h2>
+					<p class="lightText">Down the rabbit hole</p>
 				</section>
 
 				<section>
-					<h2>Number</h2>
+					<h2>type="number"</h2>
 					<p>
 						<small>What is a <em>valid </em>number and how do the <code>min</code>, <code>max</code> and <code>step</code> attributes work?</small>
 					</p>
 					<p>
-						<label for="input-number">Number:</label>
-						<input 
-		         id="input-number"
-		         class="input validate"
-		         type="number" 
-		         value="1"
-		         step="any"
-		         required
-		         style="width: 10em;"
-		         />
+						<!-- <form action="#!"> -->
+							<label for="input-number">Number:</label>
+							<input 
+								id="input-number"
+								class="input validate"
+								type="number" 
+								value="1"
+								step="any"
+								required
+								style="width: 10em;"
+								/>
+						<!-- </form> -->
+					</p>
 
 	         	<p class="output">
 	         		<label for="settings-output">value submitted:</label>
@@ -393,15 +399,31 @@
 	         		<input id="settings-step"class="input" type="type" placeholder="Undefined" style="margin-right:0;"/>
 		         </p>
 					</p>
-					<p class="xfragment roll-in" style="margin-top:40px;">
+					<!-- <p class="xfragment roll-in" style="margin-top:40px;">
 						<small class="xspecial smaller"> iOS 5+6 allows a comma (exactly) on the thousands mark but does not submit it</small>
-					</p>
+					</p> -->
+					<small style="margin-bottom:0.5em;">
+						Exactly what is a valid number?
+					</small>
+					<small>
+						<ul class="barList" style="width:75%;">
+							<li><em>1</em></li>
+							<li><em>-10 (min)</em></li>
+							<li><em>1000 (max)</em></li>
+							<li><em>100.1 (any)</em></li>
+							<li><em>00100.100</em></li>
+							<li><em>00&nbsp;100.&nbsp;&nbsp;100</em></li>
+							<li><em>1000a </em></li>
+							<li><em>1,000 </em></li>
+							<!-- <li><em>6.23e01</em></li> -->
+						</ul>
+					</small>
 					<p class="xfragment roll-in">
-						<small class="xspecial smaller">
+						<!-- <small class="xspecial smaller">
 							Only Android marks all spaces as invalid,<br>
 							Safari &amp; iOS mark them invalid only <em>between</em> digits,<br>
 							Only IE <em>submits</em> the spaces!
-						</small>
+						</small> -->
 					</p>
 				</section>
 
@@ -435,12 +457,8 @@
 				</section> -->
 
 				<section>
-					<h2>Number</h2>
-					<p>Virtual keyboards
-						<small class="fragment roll-in special">
-							DANGER: If you want to use number inputs for negative or decimal numbers
-						</small>
-					</p>
+					<h2>type="number"</h2>
+					<p>Virtual keyboards</p>
 					<table class="figureTable">
 						<tr>
 							<td>
@@ -471,6 +489,9 @@
 							</td>
 						</tr>
 					</table>
+					<small class="fragment roll-in special">
+						DANGER: If you want to use number inputs for negative or decimal numbers
+					</small>
 					
 				</section>
 
