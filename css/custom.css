@@ -1,7 +1,6 @@
 /* Custom CSS Styles for Reveal Presentation
  *********************************************/
 
-
 /* BASICS */
 
 .reveal input {
@@ -106,12 +105,16 @@ li {
   font-style: italic;
   opacity: 0.7;
 }
+.reveal .flat-highlight {
+  color: #664e1a;
+  opacity: 0.7;
+}
 
 .reveal .brandLogo {
   display: inline-block;
   vertical-align: middle;
-  width: 100px;
-  margin: -15px 0 0 0;
+  width: 130px;
+  margin: 20px;
 }
 
 .reveal .barList {
