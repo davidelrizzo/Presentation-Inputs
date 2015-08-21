@@ -103,11 +103,11 @@
 
 				<section>
 					<h2>The four pillars of Inputs</h2>
-					<p>Semantics and Accessibility (Markup)</p>
+					<p style="margin-top:1em">Semantics and Accessibility (Markup)</p>
 					<p>Interaction (UI/UX, Behaviour)</p>
 					<p>Styling</p>
 					<p>Validation</p>
-					<p style="margin-top:1em"><em>Understanding all four is key to designing best practice forms</em></p>
+					<!-- <p style="margin-top:1em"><em>Understanding all four is key to designing best practice forms</em></p> -->
 				</section>
 
 				<!-- ##################### BASICS ######################### -->
@@ -139,7 +139,7 @@
 				</section> -->
 
 				<section>
-					<h2>Basic input types</h2>
+					<h2 style="margin-bottom:0.5em;">Basic input types</h2>
 					
 					<p style="padding-bottom:0.8em;">
 						<input type="text" class="input small" size="10" placeholder="text" />
@@ -157,15 +157,15 @@
 						<input type="url" class="input small validate" size="10" placeholder="url" />
 					</p>
 					<!-- <p>Virtual keyboard + Validation</p> -->
-					<p>
-						Use <code>maxlength</code> and <code>pattern</code> attributes to validate
+					<p><small>
+						Use <code>required</code>, <code>maxlength</code> and <code>pattern</code> to validate
 						<!-- <small>also <code>minlength</code> now works on <img src="images/chrome.png" class="browser"/> 40+</small> -->
-					</p>
-					<p><small><code>maxlength</code> also <em>prevents</em> an invalid number of characters</small></p>
+					</small></p>
+					<!-- <p><small><code>maxlength</code> also <em>prevents</em> an invalid number of characters</small></p> -->
 				</section>
 
 				<section>
-					<h2>We need to talk about <em>autocomplete</em></h2>
+					<h2>Browser <em>autocomplete/autofill</em></h2>
 					<!-- <img src="images/browser-autocomplete.png" style="margin-top:-20px;"/> -->
 
 					<form action="#/5" style="margin:1em 0;">
@@ -181,9 +181,9 @@
 	        </form>
 
 	        <p class="fragment roll-in">
-						<strong><code>autocomplete="off"</code> is BAD UX!</strong><br>
-						Slows down form completion &amp; blocks password managers<br>
-						<small>(Only turn 'off' for Credit Card CCV number)</small>
+						<strong>Don't turn <code>autocomplete="off"</code>!</strong><br>
+						<!-- Slows down form completion &amp; blocks password managers<br> -->
+						<small class="smaller">Except for Credit Card CCV numbers, no one should ever store that!</small>
 						<!-- <small class="fragment roll-in">
 							<img src="images/chrome.png" class="browser"/> 35+ ignores autocomplete="off"
 						</small> -->
@@ -201,84 +201,28 @@
 				</section>
 
 				<section>
-					<h3>So what is best practice now?</h3>
+					<h3>How do browsers know what to fill?</h3>
+
+					<form style="margin:1em 0;">
+						<label for="givenname" style="vertical-align:middle; display:inline-block; height:2em;">First name:</label>
+						<input   
+		         id="givenname"
+		         name="given-name"
+		         class="input small"
+		         type="text"
+		         autocomplete="given-name"
+		         placeholder="eg. John"
+		         style="margin-top:-20px;"
+		         />
+	        </form>
 					
-					<p style="margin-bottom:1em;">
-							<a href="https://html.spec.whatwg.org/multipage/forms.html#attr-fe-autocomplete" target="_blank">WHATWG</a> 
-							recommends autocomplete tokens
-					</p>
-
-					<div class="xfragment roll-in">
-						<ul class="column">
-							<li>"shipping"</li>
-							<li class="endbit">"billing"</li>
-							
-							<li>"name"</li>
-							<li>"honorific-prefix"</li>
-							<li>"given-name"</li>
-							<li>"additional-name"</li>
-							<li>"family-name"</li>
-							<li>"honorific-suffix"</li>
-							<li>"nickname"</li>
-							<li>"username"</li>
-							<li>"new-password"</li>
-						</ul>
-						<ul class="column">
-							<li>"current-password"</li>
-							<li>"organization-title"</li>
-							<li>"organization"</li>
-							<li>"street-address"</li>
-							<li>"address-line1"</li>
-							<li>"address-line2"</li>
-							<li>"country"</li>
-							<li>"country-name"</li>
-							<li>"postal-code"</li>
-							<li>"cc-name"</li>
-							<li>"cc-given-name"</li>
-							<li>"cc-additional-name"</li>
-						</ul>
-						<ul class="column">
-							<li>"cc-family-name"</li>
-							<li>"cc-number"</li>
-							<li>"cc-exp"</li>
-							<li>"cc-exp-month"</li>
-							<li>"cc-exp-year"</li>
-							<li>"cc-csc"</li>
-							<li>"cc-type"</li>
-							<li>"transaction-currency"</li>
-							<li>"transaction-amount"</li>
-							<li>"language"</li>
-						</ul>
-						<ul class="column">
-							<li>"bday"</li>
-							<li>"bday-day"</li>
-							<li>"bday-month"</li>
-							<li>"bday-year"</li>
-							<li>"sex"</li>
-							<li>"url"</li>
-							<li class="endbit">"photo"</li>
-							
-							<li>"home"</li>
-							<li>"work"</li>
-							<li>"mobile"</li>
-							<li>"fax"</li>
-						</ul>
-						<ul class="column">
-							<li>"pager"</li>
-							<li>"tel"</li>
-							<li>"tel-country-code"</li>
-							<li>"tel-national"</li>
-							<li>"tel-area-code"</li>
-							<li>"tel-local"</li>
-							<li>"tel-local-prefix"</li>
-							<li>"tel-local-suffix"</li>
-							<li>"tel-extension"</li>
-							<li>"email"</li>
-							<li>"impp"</li>
-						</ul>
+					<div class="fragment roll-in">
+						<p>
+								<acronym  title="Web Hypertext Application Technology Working Group">WHATWG</acronym > recommends <a href="https://html.spec.whatwg.org/multipage/forms.html#attr-fe-autocomplete" target="_blank">autocomplete</a> tokens
+						</p>
+						<p><small>eg. <code>&lt;input autocomplete=&quot;given-name billing&quot; /&gt;</code></small></p>
 					</div>
-
-					<p><small>eg. <code>&lt;input type=&quot;tel&quot; autocomplete=&quot;billing tel mobile&quot; /&gt;</code></small></p>
+					
 
 				</section>
 
@@ -317,15 +261,15 @@
 
 		        <p class="number-settings">
 	         		<label for="settings-min">min:</label>
-	         		<input id="settings-min"class="input" type="number" placeholder="Undefined" />
+	         		<input id="settings-min"class="input" type="number" placeholder="undefined" />
 	         		<label for="settings-max">max:</label>
-	         		<input id="settings-max"class="input" type="number" placeholder="Undefined" />
+	         		<input id="settings-max"class="input" type="number" placeholder="undefined" />
 	         		<label for="settings-step">step:</label>
-	         		<input id="settings-step"class="input" type="type" placeholder="Undefined" style="margin-right:0;"/>
+	         		<input id="settings-step"class="input" type="type" placeholder="undefined" style="margin-right:0;"/>
 		        </p>
 						<small class="smaller" style="margin-top:40px;"> 
 							<div style="margin-bottom:10px">iOS 5+6 allows a comma (exactly) on the thousands mark but does not submit it</div>
-							<div style="margin-bottom:10px">Android, Safari and IE all treat whitespace differently</div>
+							<div style="margin-bottom:10px">Chrome, Android, Safari and IE all treat whitespace differently</div>
 							<div>Latest Chrome prevent invalids keys together</div>
 						</small>
 				</section>
@@ -383,12 +327,13 @@
 					<p>So what about Postcodes, Pins, Credit Cards etc..?</p>
 					<p>
 						<label>Serial number:</label>
-						<input type="tel" class="input" value="001 565 779 334" /><br>
-						<small>Anything where each <em>character </em>is more important than <em>value </em>submitted</small></p>
+						<input type="tel" class="input" value="001-022-779-334" /><br>
+						<!-- <small>Anything where each <em>character </em>is more important than <em>value </em>submitted</small></p> -->
 					
-					<h3 class="fragment roll-in">There is no HTML5 'type' for these</h3>
+					
 					<div  class="fragment roll-in">
-						<p><em>Best to allow desktop users to enter however they like</em></p>
+						<h3 class="xfragment roll-in">There is no HTML5 'type' for these</h3>
+						<!-- <p><em>Best to allow desktop users to enter however they like</em></p> -->
 						<p>
 							<em><code>type=&quot;tel&quot;</code> is the <strong>only</strong> way to invoke a<br>numeric keyboard on all devices</em>
 						</p>
@@ -696,8 +641,8 @@
 								<td>
 									Browser managed<br>
 									Expected device behaviour<br>
-									Semantic<br>
-									Accessible
+									Responsive<br>
+									Semantic/Accessible
 								</td>
 							<tr>
 							<tr>
@@ -736,15 +681,15 @@
 					</p>
 				</section> -->
 
-				<section data-background="images/tree.jpg">
-					<h2 class="lightText">TAKEAWAY</h2>
-					<p class="lightText">
-						Understanding input behaviour across<br>	 
+				<section data-background="images/TalkSketch-JustinCheong.jpg">
+					<h2 class="xlightText">TAKEAWAY</h2>
+					<p class="xlightText">
+						<strong>Understanding input behaviour across<br>	 
 						browsers and devices is challenging but essential to<br>
-						designing best practice forms
+						designing best practice forms</strong>
 					</p>
-					<h4 class="lightText" style="margin-top:40px;">Thank You</h4>
-					<p class="lightText" style="margin-top:-20px;">
+					<h4 class="xlightText" style="margin-top:40px;">Thank You</h4>
+					<p class="xlightText" style="margin-top:-20px;">
 						<small><a class="lightText" href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small>
 					</p>
 				</section>
