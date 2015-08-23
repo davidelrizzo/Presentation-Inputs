@@ -139,7 +139,7 @@
 				</section> -->
 
 				<section>
-					<h2 style="margin-bottom:0.5em;">Basic input types</h2>
+					<h2 style="margin-bottom:0.5em;">Basic inputs</h2>
 					
 					<p style="padding-bottom:0.8em;">
 						<input type="text" class="input small" size="10" placeholder="text" />
@@ -152,9 +152,9 @@
 						<li>Styled</li>
 					</ul> -->
 					<p style="padding-bottom:0.3em;">
-						<input type="tel" class="input small validate" size="10" placeholder="tel" />
-						<input type="email" class="input small validate" size="10" placeholder="email" />
-						<input type="url" class="input small validate" size="10" placeholder="url" />
+						<input type="tel" class="input small validate" size="10" placeholder="tel" required />
+						<input type="email" class="input small validate" size="10" placeholder="email" required />
+						<input type="url" class="input small validate" size="10" placeholder="url" required />
 					</p>
 					<!-- <p>Virtual keyboard + Validation</p> -->
 					<p><small>
@@ -267,11 +267,18 @@
 	         		<label for="settings-step">step:</label>
 	         		<input id="settings-step"class="input" type="type" placeholder="undefined" style="margin-right:0;"/>
 		        </p>
-						<small class="smaller" style="margin-top:40px;"> 
+						<!-- <small class="smaller" style="margin-top:40px;"> 
 							<div style="margin-bottom:10px">iOS 5+6 allows a comma (exactly) on the thousands mark but does not submit it</div>
 							<div style="margin-bottom:10px">Chrome, Android, Safari and IE all treat whitespace differently</div>
 							<div>Latest Chrome prevent invalids keys together</div>
+						</small> -->
+						
+						<small class="smaller" style="margin-top:40px;">
+							<div style="margin-bottom:10px">
+								iOS, Native Android &amp; IE have limited support<br>so requires a JavaScript polyfill like <a href="http://afarkas.github.io/webshim/demos/" target="_blank">Webshim</a> in the real world
+							</div>
 						</small>
+
 				</section>
 
 				<section>
@@ -691,6 +698,9 @@
 					<h4 class="xlightText" style="margin-top:40px;">Thank You</h4>
 					<p class="xlightText" style="margin-top:-20px;">
 						<small><a class="lightText" href="http://twitter.com/davidelrizzo" target="_blank">@davidelrizzo</a></small>
+					</p>
+					<p>
+						<small style="font-size:50%">[Image by Justin Cheong <a class="lightText" href="https://twitter.com/jcfiction">@jcfiction</a>]</small>
 					</p>
 				</section>
 
